@@ -28,8 +28,15 @@ public class ServletTroca extends HttpServlet {
 		
 		String option = request.getParameter("option"); 		
 		switch(option) {
+	
 		case("categoriaSV"):
 			request.getRequestDispatcher("ServletCategoria").forward(request, response);
+			break;
+		case("bandeiraSv"):
+			request.getRequestDispatcher("ServletBandeira").forward(request, response);
+			break;
+		case("receitaSv"):
+			request.getRequestDispatcher("ServletReceita").forward(request, response);
 			break;
 		case("marcaSV"):
 			request.getRequestDispatcher("ServletMarca").forward(request, response);

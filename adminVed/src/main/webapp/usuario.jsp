@@ -60,6 +60,10 @@
 						<button type="submit" name="option" value="marcaSV"
 							class="nav-link text-white justify-content-center btn-info ">Marcas</button>
 					</li>
+								<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="bandeiraSv"
+							class="nav-link text-white justify-content-center btn-info ">Bandeira</button>
+					</li>
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="fornecedorSV"
 							class="nav-link text-white justify-content-center btn-info ">Fornecedores</button>

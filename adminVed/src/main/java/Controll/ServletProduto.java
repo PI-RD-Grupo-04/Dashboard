@@ -54,7 +54,7 @@ public class ServletProduto extends HttpServlet {
 			Delete(request, response);
 		
 		} else if (option.equals("insert")) {
-			Insert(request, response);
+	//		Insert(request, response);
 			
 		}	
 		
@@ -126,6 +126,7 @@ public class ServletProduto extends HttpServlet {
 			dao.removeProduto(id1);
 		}		
 	}	
+	
+	
 	}
 	
-}
