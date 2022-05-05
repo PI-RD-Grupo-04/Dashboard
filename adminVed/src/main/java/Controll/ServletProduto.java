@@ -1,6 +1,7 @@
 package Controll;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +14,7 @@ import dao.CategoriaDAO;
 import dao.FornecedorDAO;
 import dao.MarcaDAO;
 import dao.ProdutoDAO;
+import dao.ReceitaDAO;
 import dao.StatusProdutoDAO;
 import entidades.Produto;
 
@@ -24,7 +26,8 @@ public class ServletProduto extends HttpServlet {
 	private CategoriaDAO categoriaDao;
 	private StatusProdutoDAO statusDao; 
 	private ArmazenamentoDAO armazenaDao; 
-	private FornecedorDAO forneceDao;
+	private FornecedorDAO forneceDao; 
+	private ReceitaDAO receitaDao;
 
 	public ServletProduto() {
 		super();
@@ -34,6 +37,7 @@ public class ServletProduto extends HttpServlet {
 		statusDao = new StatusProdutoDAO(); 
 		armazenaDao = new ArmazenamentoDAO();
 		forneceDao = new FornecedorDAO();
+		receitaDao = new ReceitaDAO();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -58,19 +62,11 @@ public class ServletProduto extends HttpServlet {
 			Delete(request, response);
 
 		} else if (option.equals("insert")) {
-<<<<<<< HEAD
 			Insert(request, response);
 
 		}
 
 		// pesquisa pessaol
-=======
-	//		Insert(request, response);
-			
-		}	
-		
-		//pesquisa pessaol 
->>>>>>> e5e866c1107e2e40434245c21da6540132a7b75e
 		if (option.equals("btnsearch")) {
 			String search = request.getParameter("search");
 			request.setAttribute("lista", dao.ListProdutoLike(search));
@@ -89,10 +85,9 @@ public class ServletProduto extends HttpServlet {
 		request.setAttribute("listaMarca", marcaDao.getListMarca());
 		request.setAttribute("listaCategoria", categoriaDao.getListCategoria());
 		request.setAttribute("listaArmazenamento", armazenaDao.getlist()); 
-		request.setAttribute("listaFornecedor", forneceDao.getListFornecedor()); 
+		request.setAttribute("listaFornecedor", forneceDao.getListFornecedor());  
+		request.setAttribute("listaReceita", receitaDao.getListReceita());   
 		
-		
-
 		request.getRequestDispatcher("cadastroProduto.jsp").forward(request, response);
 	}
 
@@ -110,7 +105,7 @@ public class ServletProduto extends HttpServlet {
 	}
 
 	protected void Update(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+			throws ServletException, IOException { 
 		String id = request.getParameter("id");
 		String nome = request.getParameter("nome");
 		String preco = request.getParameter("preco");
@@ -119,17 +114,22 @@ public class ServletProduto extends HttpServlet {
 		String marca = request.getParameter("marca");
 		String descricao = request.getParameter("descricao");
 		String status = request.getParameter("status");
-		String peso = request.getParameter("peso");
+		String peso = request.getParameter("peso"); 
+		String fornecedor = request.getParameter("fornecedor"); 
+		String armazenamento = request.getParameter("armazenamento"); 
+		String receita = request.getParameter("receita");  
+		String quantidade = request.getParameter("quantidade");
 
 		if ((nome != null) && (preco != null) && (imagem != null) && (categoria != null) && (marca != null)
 				&& (descricao != null) && (status != null) && (peso != null)) {
 			if (!nome.equals("")) {
 				dao = new ProdutoDAO();
 				Integer id1 = Integer.parseInt(id);
-				Produto produto1 = new Produto(nome, Double.parseDouble(preco), imagem, Integer.parseInt(categoria),
-						Integer.parseInt(marca), descricao, Integer.parseInt(status), Double.parseDouble(peso));
-				produto1.setId(id1);
-				dao.updateProduto(produto1);
+				Produto produto = new Produto(nome, new BigDecimal(preco), imagem, descricao, Double.parseDouble(peso),
+						  Integer.parseInt(quantidade),  Integer.parseInt(categoria), Integer.parseInt(marca), Integer.parseInt(status),
+						  Integer.parseInt(armazenamento), Integer.parseInt(fornecedor), Integer.parseInt(receita));    
+				produto.setId(id1);
+				dao.updateProduto(produto);
 			}
 		}
 	}
@@ -141,7 +141,7 @@ public class ServletProduto extends HttpServlet {
 			Integer id1 = Integer.parseInt(id);
 			dao = new ProdutoDAO();
 			dao.removeProduto(id1);
-<<<<<<< HEAD
+
 		}
 	}
 
@@ -154,25 +154,25 @@ public class ServletProduto extends HttpServlet {
 		String marca = request.getParameter("marca");
 		String descricao = request.getParameter("descricao");
 		String status = request.getParameter("status");
-		String peso = request.getParameter("peso");
+		String peso = request.getParameter("peso"); 
+		String fornecedor = request.getParameter("fornecedor"); 
+		String armazenamento = request.getParameter("armazenamento"); 
+		String receita = request.getParameter("receita");  
+		String quantidade = request.getParameter("quantidade");
+		
 
 		if ((nome != null) && (preco != null) && (imagem != null) && (categoria != null) && (marca != null)
 				&& (descricao != null) && (status != null) && (peso != null)) {
 			if (!nome.equals("")) {
 				dao = new ProdutoDAO();
-				Produto produto = new Produto(nome, Double.parseDouble(preco), imagem, Integer.parseInt(categoria),
-						Integer.parseInt(marca), descricao, Integer.parseInt(status), Double.parseDouble(peso));
+				Produto produto = new Produto(nome, new BigDecimal(preco), imagem, descricao, Double.parseDouble(peso),
+								  Integer.parseInt(quantidade),  Integer.parseInt(categoria), Integer.parseInt(marca), Integer.parseInt(status),
+								  Integer.parseInt(armazenamento), Integer.parseInt(fornecedor), Integer.parseInt(receita));    
+				
 				dao.addProduto(produto);
 			}
 		}
 	}
 
 }
-=======
-		}		
-	}	
-	
-	
-	}
-	
->>>>>>> e5e866c1107e2e40434245c21da6540132a7b75e
+

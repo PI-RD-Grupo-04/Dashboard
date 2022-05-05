@@ -226,7 +226,7 @@
 												<th scope="col">Categoria</th>
 												<th scope="col">Marca</th>
 												<th scope="col">Status</th>
-												<th scope="col">Peso</th>
+												<th scope="col">quantidade</th>
 												<th scope="col" class="text-center">Opções</th>
 
 											</tr>
@@ -239,14 +239,13 @@
 
 														<td>${produto.id}</td>
 														<td>${produto.nome}</td>
-
 														<td><fmt:setLocale value="pt_BR" /> R$ <fmt:formatNumber
 																type="number" minFractionDigits="2"
 																value="${produto.preco} " /></td>
-														<td>${produto.categoria2}</td>
-														<td>${produto.marca2}</td>
-														<td>${produto.status2}</td>
-														<td>KG ${produto.peso}</td>
+														<td>${produto.categoria}</td>
+														<td>${produto.marca}</td>
+														<td>${produto.statusProduto}</td>
+														<td>${produto.quantidade}</td>
 														<!-- Modal -->
 														<div class="modal fade" id="modelDelete-${produto.id}"
 															tabindex="-1" aria-labelledby="modelDeleteLabel"

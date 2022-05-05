@@ -35,9 +35,9 @@ public class ClienteDAO {
 			
 			while (resultSet.next()) {
 				Integer id2 = resultSet.getInt("id_cliente");
-				String nome = resultSet.getString("nome_cliente");
-				String sobrenome = resultSet.getString("sobrenome_cliente");
-				String cpf = resultSet.getString("CPF");
+				String nome = resultSet.getString("nome");
+				String sobrenome = resultSet.getString("sobrenome");
+				String cpf = resultSet.getString("cpf");
 				Date nascimento = resultSet.getDate("data_nascimento");
 				String email = resultSet.getString("email");
 				String telefone = resultSet.getString("telefone");
@@ -63,9 +63,9 @@ public class ClienteDAO {
 			
 			while (resultSet.next()) {
 				Integer id2 = resultSet.getInt("id_cliente");
-				String nome = resultSet.getString("nome_cliente");
-				String sobrenome = resultSet.getString("sobrenome_cliente");
-				String cpf = resultSet.getString("CPF");
+				String nome = resultSet.getString("nome");
+				String sobrenome = resultSet.getString("sobrenome");
+				String cpf = resultSet.getString("cpf");
 				Date nascimento = resultSet.getDate("data_nascimento");
 				String email = resultSet.getString("email");
 				String telefone = resultSet.getString("telefone");

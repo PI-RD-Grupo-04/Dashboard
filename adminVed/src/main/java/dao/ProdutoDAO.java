@@ -26,7 +26,7 @@ public class ProdutoDAO {
 							+ "id_armazenamento,id_categoria,id_fornecedor,id_marca,id_receita,id_status_produto)"
 							+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
 			preStat.setString(1, newProduto.getDescricao());
-			preStat.setString(2, newProduto.getNomeProduto());
+			preStat.setString(2, newProduto.getNome());
 			preStat.setDouble(3, newProduto.getPeso());
 			preStat.setBigDecimal(4, newProduto.getPreco());
 			preStat.setInt(5, newProduto.getQuantidade());
@@ -86,35 +86,30 @@ public class ProdutoDAO {
 		return listaProduto;
 	}
 
-	public <T> ArrayList<Produto> ListProduto() {
+	public ArrayList<Produto> ListProduto() {
 		Conexao conexao = Conexao.getInstance();
 		Connection connection = conexao.getConnection();
 		ArrayList<Produto> listaProduto2 = new ArrayList<Produto>();
 		try {
-			PreparedStatement preStat = connection.prepareStatement(
-					"select p.id_produto,p.nome_produto, p.preco, p.quantidade,p.descricao_produto,\n"
-					+ "	c.descricao_categoria , m.descricao_marca , sp.descricao_status \n"
-					+ "	from produto p\n"
+			PreparedStatement preStat = connection.prepareStatement("select  * from produto p \n"
 					+ "		inner join categoria c  on p.id_categoria = c.id_categoria \n"
 					+ "		inner join marca  m on p.id_marca = m.id_marca \n"
 					+ "		inner join status_produto sp  on p.id_status_produto = sp.id_status_produto  \n"
 					+ "        inner join fornecedor f on f.id_fornecedor = p.id_fornecedor \n"
-					+ "			order by p.id_produto;\n"
-					+ "");
+					+ "			order by p.id_produto;\n");
 			ResultSet resultSet = preStat.executeQuery();
 
 			while (resultSet.next()) {
 				Integer id2 = resultSet.getInt("id_produto");
 				String nome = resultSet.getString("nome_produto");
 				String preco = resultSet.getString("preco");
-				String quant = resultSet.getString("quantidade");
-				String categoria = resultSet.getString("descricao_categoria");
-				String marca = resultSet.getString("descricao_marca");
-				String status = resultSet.getString("descricao_produto_status");
-				String peso = resultSet.getString("peso_kilo"); 
-				
-				Produto produto2 = new Produto(nome, new BigDecimal(preco), Integer.parseInt(quant), Integer.parseInt(categoria), Integer.parseInt(marca), Integer.parseInt(status),
-						Double.parseDouble(peso));
+				String quantidade = resultSet.getString("quantidade");
+				String categoria = resultSet.getString("id_categoria");
+				String marca = resultSet.getString("id_marca");
+				String status = resultSet.getString("id_status_produto");
+
+				Produto produto2 = new Produto(nome, new BigDecimal(preco), Integer.parseInt(quantidade),
+						Integer.parseInt(categoria), Integer.parseInt(marca), Integer.parseInt(status));
 				produto2.setId(id2);
 				listaProduto2.add(produto2);
 			}
@@ -149,10 +144,10 @@ public class ProdutoDAO {
 		try {
 			PreparedStatement preStat = connection.prepareStatement(
 					"UPDATE produto SET id_produto =? :,descricao_produto =? ,nome_produto =? ,peso_kilo =?,preco =?,quantidade =?,imagem_url =?,\n"
-					+ "id_armazenamento =? ,id_categoria =? ,id_fornecedor =? ,id_marca =?,id_receita =?,id_status_produto =?WHERE id_produto =?;\n"
-					+ "");
+							+ "id_armazenamento =? ,id_categoria =? ,id_fornecedor =? ,id_marca =?,id_receita =?,id_status_produto =?WHERE id_produto =?;\n"
+							+ "");
 			preStat.setString(1, updateProduto.getDescricao());
-			preStat.setString(2, updateProduto.getNomeProduto());
+			preStat.setString(2, updateProduto.getNome());
 			preStat.setDouble(3, updateProduto.getPeso());
 			preStat.setBigDecimal(4, updateProduto.getPreco());
 			preStat.setInt(5, updateProduto.getQuantidade());
@@ -188,13 +183,11 @@ public class ProdutoDAO {
 				String quant = resultSet.getString("quantidade");
 				String categoria = resultSet.getString("descricao_categoria");
 				String marca = resultSet.getString("descricao_marca");
-				String status = resultSet.getString("descricao_produto_status");
-				String peso = resultSet.getString("peso_kilo"); 
-	
-				
-				
-				produto = new  Produto(nome, new BigDecimal(preco), Integer.parseInt(quant), Integer.parseInt(categoria), Integer.parseInt(marca), Integer.parseInt(status),
-						Double.parseDouble(peso));
+				String status = resultSet.getString("descricao_status");
+				String peso = resultSet.getString("peso_kilo");
+
+				produto = new Produto(nome, new BigDecimal(preco), Integer.parseInt(quant), Integer.parseInt(categoria),
+						Integer.parseInt(marca), Integer.parseInt(status));
 				produto.setId(id2);
 
 			}
@@ -213,16 +206,15 @@ public class ProdutoDAO {
 		ArrayList<Produto> listaLike = new ArrayList<Produto>();
 
 		try {
-			PreparedStatement preStat = connection.prepareStatement(
-					"select p.id_produto,p.nome_produto, p.preco, p.quantidade,p.descricao_produto,\n"
-					+ "	c.descricao_categoria , m.descricao_marca , sp.descricao_status \n"
-					+ "	from produto p\n"
-					+ "		inner join categoria c  on p.id_categoria = c.id_categoria \n"
-					+ "		inner join marca  m on p.id_marca = m.id_marca \n"
-					+ "		inner join status_produto sp  on p.id_status_produto = sp.id_status_produto  \n"
-					+ "        inner join fornecedor f on f.id_fornecedor = p.id_fornecedor \n"
-					+ "        where p.nome_produto like ?\n"
-					+ "			order by p.id_produto; ");
+			PreparedStatement preStat = connection
+					.prepareStatement("select p.id_produto,p.nome_produto, p.preco, p.quantidade,p.descricao_produto,\n"
+							+ "	c.descricao_categoria , m.descricao_marca , sp.descricao_status \n"
+							+ "	from produto p\n"
+							+ "		inner join categoria c  on p.id_categoria = c.id_categoria \n"
+							+ "		inner join marca  m on p.id_marca = m.id_marca \n"
+							+ "		inner join status_produto sp  on p.id_status_produto = sp.id_status_produto  \n"
+							+ "        inner join fornecedor f on f.id_fornecedor = p.id_fornecedor \n"
+							+ "        where p.nome_produto like ?\n" + "			order by p.id_produto; ");
 			preStat.setString(1, produto + "%");
 			ResultSet resultSet = preStat.executeQuery();
 
@@ -233,10 +225,10 @@ public class ProdutoDAO {
 				String quant = resultSet.getString("quantidade");
 				String categoria = resultSet.getString("descricao_categoria");
 				String marca = resultSet.getString("descricao_marca");
-				String status = resultSet.getString("descricao_produto_status");
-				String peso = resultSet.getString("peso_kilo"); 
-				Produto produto1 = new Produto(nome, new BigDecimal(preco), Integer.parseInt(quant), Integer.parseInt(categoria), Integer.parseInt(marca), Integer.parseInt(status),
-						Double.parseDouble(peso));
+				String status = resultSet.getString("descricao_status");
+				String peso = resultSet.getString("peso_kilo");
+				Produto produto1 = new Produto(nome, new BigDecimal(preco), Integer.parseInt(quant),
+						Integer.parseInt(categoria), Integer.parseInt(marca), Integer.parseInt(status));
 				produto1.setId(id2);
 				listaLike.add(produto1);
 			}

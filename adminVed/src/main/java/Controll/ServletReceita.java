@@ -28,7 +28,7 @@ public class ServletReceita extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {				
-		request.setAttribute("lista", dao.getListFornecedor());
+		request.setAttribute("lista", dao.getListReceita());
 		String option = request.getParameter("option");
 		
 		if(option.equals("insertForm")) {
@@ -48,7 +48,7 @@ public class ServletReceita extends HttpServlet {
 			
 		}				
 		
-		request.setAttribute("lista", dao.getListFornecedor());
+		request.setAttribute("lista", dao.getListReceita());
 		request.getRequestDispatcher("receita.jsp").forward(request, response);		
 			
 	}

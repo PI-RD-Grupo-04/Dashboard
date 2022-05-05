@@ -22,7 +22,6 @@ public class ServletCliente extends HttpServlet {
         dao = new ClienteDAO();
     }
 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 		

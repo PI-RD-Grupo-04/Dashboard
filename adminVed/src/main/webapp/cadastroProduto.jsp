@@ -60,11 +60,11 @@
 						<button type="submit" name="option" value="marcaSV"
 							class="nav-link text-white justify-content-center btn-info ">Marcas</button>
 					</li>
-								<li class="nav-item d-grid gap-2">
+					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="bandeiraSv"
 							class="nav-link text-white justify-content-center btn-info ">Bandeira</button>
 					</li>
-										<li class="nav-item d-grid gap-2">
+					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="receitaSv"
 							class="nav-link text-white justify-content-center btn-info ">Receita</button>
 					</li>
@@ -230,55 +230,89 @@
 								</c:forEach>
 							</select>
 						</div>
-
 						<div class="form-group mt-3" style="text-align-last: left;">
-							<label for="nome" class="form-label">Marca:</label> <select
-								style="background-color: rgb(255, 255, 255);" id="marca"
-								name="marca" class="form-select form-select-md">
-								<c:forEach var="marca" items="${listaMarca}">
-									<option value="${marca.id}">${marca.descricao}</option>
+							<label for="fornecedor" class="form-label">Fornecedor:</label> <select
+								style="background-color: rgb(255, 255, 255);" id="fornecedor"
+								name="fornecedor" class="form-select form-select-md">
+								<c:forEach var="fornecedor" items="${listaFornecedor}">
+									<option value="${fornecedor.id}">
+										${fornecedor.razao_social}</option>
 								</c:forEach>
 							</select>
 						</div>
-
-						<div class="form-group mt-3" style="text-align-last: left;">
-							<label for="nome" class="form-label">Descrição:</label> <input
-								style="background-color: rgb(255, 255, 255);" type="text"
-								class="form-control" name="descricao"
-								value="${produto.descricao}" required>
-						</div>
-
-						<div class="form-group mt-3" style="text-align-last: left;">
-							<label for="nome" class="form-label">Status:</label> <select
-								style="background-color: rgb(255, 255, 255);" id="status"
-								name="status" class="form-select form-select-md">
-								<c:forEach var="status" items="${listaStatus}">
-									<option value="${status.id}">${status.descricao}</option>
-								</c:forEach>
-							</select>
-						</div>
-
-						<div class="form-group mt-3" style="text-align-last: left;">
-							<label for="nome" class="form-label">Peso:</label> <input
-								type="text" style="background-color: rgb(255, 255, 255);"
-								class="form-control" name="peso" value="${produto.peso}"
-								id="peso" required>
-						</div>
-						<div class="d-grid gap-2">
-							<c:choose>
-								<c:when test="${categoria == null}">
-									<button type="button" data-bs-toggle="modal"
-										class="btn-success btn " data-bs-target="#modelDelete">Salvar</button>
-								</c:when>
-								<c:otherwise>
-									<button type="button" data-bs-toggle="modal"
-										class="btn-success btn " data-bs-target="#modelDelete">atualizar</button>
-								</c:otherwise>
-							</c:choose>
-						</div>
-					</form>
+				
+				<div class="form-group mt-3" style="text-align-last: left;">
+					<label for="armazenamento " class="form-label">Armazenamento:</label>
+					<select style="background-color: rgb(255, 255, 255);"
+						id="armazenamento" name="armazenamento"
+						class="form-select form-select-md">
+						<c:forEach var="armazenamento" items="${listaArmazenamento}">
+							<option value="${armazenamento.id}">
+								${armazenamento.descricao}</option>
+						</c:forEach>
+					</select>
+				</div> 
+				
+				<div class="form-group mt-3" style="text-align-last: left;">
+					<label for="receita " class="form-label">Receita:</label>
+					<select style="background-color: rgb(255, 255, 255);"
+						id="receita" name="receita"
+						class="form-select form-select-md">
+						<c:forEach var="receita" items="${listaReceita}">
+							<option value="${receita.id}">
+								${receita.descricao}</option>
+						</c:forEach>
+					</select>
 				</div>
+
+				<div class="form-group mt-3" style="text-align-last: left;">
+					<label for="nome" class="form-label">Marca:</label> <select
+						style="background-color: rgb(255, 255, 255);" id="marca"
+						name="marca" class="form-select form-select-md">
+						<c:forEach var="marca" items="${listaMarca}">
+							<option value="${marca.id}">${marca.descricao}</option>
+						</c:forEach>
+					</select>
+				</div>
+
+				<div class="form-group mt-3" style="text-align-last: left;">
+					<label for="nome" class="form-label">Descrição:</label> <input
+						style="background-color: rgb(255, 255, 255);" type="text"
+						class="form-control" name="descricao" value="${produto.descricao}"
+						required>
+				</div>
+
+				<div class="form-group mt-3" style="text-align-last: left;">
+					<label for="nome" class="form-label">Status:</label> <select
+						style="background-color: rgb(255, 255, 255);" id="status"
+						name="status" class="form-select form-select-md">
+						<c:forEach var="status" items="${listaStatus}">
+							<option value="${status.id}">${status.descricao}</option>
+						</c:forEach>
+					</select>
+				</div>
+
+				<div class="form-group mt-3" style="text-align-last: left;">
+					<label for="nome" class="form-label">Peso:</label> <input
+						type="text" style="background-color: rgb(255, 255, 255);"
+						class="form-control" name="peso" value="${produto.peso}" id="peso"
+						required>
+				</div>
+				<div class="d-grid gap-2">
+					<c:choose>
+						<c:when test="${categoria == null}">
+							<button type="button" data-bs-toggle="modal"
+								class="btn-success btn " data-bs-target="#modelDelete">Salvar</button>
+						</c:when>
+						<c:otherwise>
+							<button type="button" data-bs-toggle="modal"
+								class="btn-success btn " data-bs-target="#modelDelete">atualizar</button>
+						</c:otherwise>
+					</c:choose>
+				</div>
+				</form>
 			</div>
+		</div>
 		</div>
 		<!--   Core JS Files   -->
 		<script src="js/core/popper.min.js"></script>

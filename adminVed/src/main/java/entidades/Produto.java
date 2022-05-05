@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class Produto {
 
 	private Integer id;
-	private String nomeProduto;
+	private String nome;
 	private BigDecimal preco;
 	private String url;
 	private String descricao;
@@ -21,7 +21,7 @@ public class Produto {
 	public Produto(String nomeProduto, BigDecimal preco, String url, String descricao, Double peso, Integer quantidade,
 			Integer categoria, Integer marca, Integer statusProduto, Integer armazenamento, Integer fornecedor,
 			Integer receita) {
-		this.nomeProduto = nomeProduto;
+		this.nome = nomeProduto;
 		this.preco = preco;
 		this.url = url;
 		this.descricao = descricao;
@@ -35,10 +35,14 @@ public class Produto {
 		this.receita = receita;
 	}
 
-	public Produto(String nome, BigDecimal preco, Integer quantidade, Integer categoria2, Integer marca2, Integer status,
-			Double parseDouble2) {
-		this.nomeProduto = nome; 
-		this.preco = preco;
+	public Produto(String nome, BigDecimal preco, Integer quantidade, Integer categoria, Integer marca, Integer status
+			) {
+		this.nome = nome; 
+		this.preco = preco; 
+		this.quantidade = quantidade; 
+		this.categoria = categoria; 
+		this.marca = marca; 
+		this.statusProduto = status;
 		
 	}
 
@@ -50,12 +54,12 @@ public class Produto {
 		this.id = id;
 	}
 
-	public String getNomeProduto() {
-		return nomeProduto;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNomeProduto(String nomeProduto) {
-		this.nomeProduto = nomeProduto;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public BigDecimal getPreco() {
@@ -149,7 +153,7 @@ public class Produto {
 
 	@Override
 	public String toString() {
-		return "Produto [id=" + id + ", nomeProduto=" + nomeProduto + ", preco=" + preco + ", url=" + url
+		return "Produto [id=" + id + ", nomeProduto=" + nome + ", preco=" + preco + ", url=" + url
 				+ ", descricao=" + descricao + ", peso=" + peso + ", quantidade=" + quantidade + ", categoria="
 				+ categoria + ", marca=" + marca + ", statusProduto=" + statusProduto + ", armazenamento="
 				+ armazenamento + "]";
