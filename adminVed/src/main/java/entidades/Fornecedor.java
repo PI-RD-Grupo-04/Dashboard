@@ -53,5 +53,13 @@ public class Fornecedor {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Fornecedor [id=" + id + ", razao_social=" + razao_social + ", cnpj=" + cnpj + ", email=" + email + "]";
+	} 
+	
+	
 	
 }
