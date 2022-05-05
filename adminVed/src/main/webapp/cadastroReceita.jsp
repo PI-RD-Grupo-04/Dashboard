@@ -61,13 +61,17 @@
 						<button type="submit" name="option" value="marcaSV"
 							class="nav-link text-white justify-content-center btn-info ">Marcas</button>
 					</li>
-								<li class="nav-item d-grid gap-2">
+					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="bandeiraSv"
 							class="nav-link text-white justify-content-center btn-info ">Bandeira</button>
 					</li>
-										<li class="nav-item d-grid gap-2">
+					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="receitaSv"
 							class="nav-link text-white justify-content-center btn-info ">Receita</button>
+					</li>
+					<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="cupomDescontoSv"
+							class="nav-link text-white justify-content-center btn-info ">Cupom Desconto</button>
 					</li>
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="fornecedorSV"
@@ -171,29 +175,35 @@
 					</c:choose>
 					<form method="post" action="ServletReceita">
 						<input type="hidden" name="id" value="${receita.id_receita}" />
-						
-						<div class="modal fade" id="modelDelete" tabindex="-1" aria-labelledby="modelDeleteLabel" aria-hidden="true">
-                            	<div class="modal-dialog">
-                              		<div class="modal-content">
-                                    	<div class="modal-header">
-	                                        <h5 class="modal-title" id="modelDeleteLabel"> Sua ação foi concluida com sucesso!</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>                                                                                                                                                                                                                                              
-                                        <div class="d-grid gap-2">
-                                        	<div class="modal-footer">
-                                        	 	<c:choose>
-				                                	<c:when test="${receita == null}">
-				                                        <button type="submit" class="btn-success btn " name="option" value="insert">ok</button>
-				                                	</c:when>
-					                                <c:otherwise>
-					                                    <button type="submit" class="btn-success btn " name="option" value="update">ok</button>
-					                                </c:otherwise>
-				                            	</c:choose>
-                                        	</div>
-				                        </div>                                    
-                             		</div>
-                           		</div>
-                            </div> 
+
+						<div class="modal fade" id="modelDelete" tabindex="-1"
+							aria-labelledby="modelDeleteLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="modelDeleteLabel">Sua ação
+											foi concluida com sucesso!</h5>
+										<button type="button" class="btn-close"
+											data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="d-grid gap-2">
+										<div class="modal-footer">
+											<c:choose>
+
+												<c:when test="${receita == null}">
+													<button type="submit" class="btn-success btn "
+														name="option" value="insert">ok</button>
+												</c:when>
+												<c:otherwise>
+													<button type="submit" class="btn-success btn "
+														name="option" value="update">ok</button>
+												</c:otherwise>
+											</c:choose>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 
 						<div class="form-group" style="text-align-last: left;">
 							<label for="nome" class="form-label">Ingredientes:</label> <input
@@ -213,16 +223,18 @@
 								style="background-color: rgb(255, 255, 255);" name="titulo"
 								value="${receita.titulo}" required>
 						</div>
-						<div class="d-grid gap-2">
-                            	<c:choose>
-                                	<c:when test="${receita == null}">                                
-                                        <button type="button" data-bs-toggle="modal" class="btn-success btn " data-bs-target="#modelDelete">Salvar</button>
-                                	</c:when>
-	                                <c:otherwise>
-	                                    <button type="button" data-bs-toggle="modal" class="btn-success btn " data-bs-target="#modelDelete">atualizar</button>
-	                                </c:otherwise>
-                            	</c:choose>
-                        	</div>
+							<div class="d-grid gap-2">
+							<c:choose>
+								<c:when test="${receita == null}">
+									<button type="button" data-bs-toggle="modal"
+										class="btn-success btn mt-2" data-bs-target="#modelDelete">Salvar</button>
+								</c:when>
+								<c:otherwise>
+									<button type="button" data-bs-toggle="modal"
+										class="btn-success btn mt-2" data-bs-target="#modelDelete">Atualizar</button>
+								</c:otherwise>
+							</c:choose>
+						</div>
 					</form>
 				</div>
 			</div>

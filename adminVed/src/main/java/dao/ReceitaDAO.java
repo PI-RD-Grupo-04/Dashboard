@@ -31,7 +31,7 @@ public class ReceitaDAO {
 		
 	}
 		
-	public ArrayList<Receita> getListFornecedor(){
+	public ArrayList<Receita> getListReceita(){
 		Conexao conexao = Conexao.getInstance();
 		Connection connection = conexao.getConnection();
 		ArrayList<Receita> lista = new ArrayList<Receita>();
