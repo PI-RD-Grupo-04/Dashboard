@@ -1,6 +1,7 @@
 package Controll;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,7 +29,6 @@ public class ServletProduto extends HttpServlet {
         marcaDao = new MarcaDAO();
         categoriaDao = new CategoriaDAO();
         statusDao = new StatusProdutoDAO();
-        
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -125,7 +125,27 @@ public class ServletProduto extends HttpServlet {
 			dao = new ProdutoDAO();
 			dao.removeProduto(id1);
 		}		
-	}	
+	}
+	
+	
+	protected void Insert(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String nome = request.getParameter("nome");
+		String preco = request.getParameter("preco");
+		String imagem = request.getParameter("imagem");
+		String categoria = request.getParameter("categoria");
+		String marca = request.getParameter("marca");
+		String descricao = request.getParameter("descricao");
+		String status = request.getParameter("status");
+		String peso = request.getParameter("peso");
+
+		
+		if ((nome!= null) && (preco != null) && (imagem != null) && (categoria != null) && (marca != null) && (descricao != null) && (status != null) && (peso != null)) {
+			if (!nome.equals("")){
+				 dao = new ProdutoDAO();
+				 Produto produto = new Produto(nome, Double.parseDouble(preco), imagem, Integer.parseInt(categoria), Integer.parseInt(marca), descricao, Integer.parseInt(status), Double.parseDouble(peso));
+				 dao.addProduto(produto);
+			}
+		}	
 	}
 	
 }
