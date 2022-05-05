@@ -34,13 +34,13 @@ public class ServletReceita extends HttpServlet {
 		if(option.equals("insertForm")) {
 			InsertForm(request, response);
 			
-		}else if (option.equals("updateForm")) {
+		}else if (option.equals("UpdateForm")) {
 			UpdateForm(request, response);
 			
 		} else if (option.equals("update")) {
-			Update(request, response); 
-			
-		} else if (option.equals("delete")) {
+			Update(request, response); }
+		
+			else if (option.equals("delete")) {
 			Delete(request, response);
 		
 		} else if (option.equals("insert")) {
@@ -70,12 +70,12 @@ public class ServletReceita extends HttpServlet {
 	
 	
 	protected void Update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id_receita = request.getParameter("id_receita");
+		String id_receita = request.getParameter("id");
 		String ingredientes = request.getParameter("ingredientes");
 		String preparo = request.getParameter("preparo");
 		String titulo = request.getParameter("titulo");
-	
-		if ((ingredientes!= null) && (preparo != null) && (titulo != null)) {
+		
+		if (ingredientes!= null)  {
 			if (!ingredientes.equals("")){
 				dao = new ReceitaDAO();
 				Integer id1 = Integer.parseInt(id_receita);

@@ -38,6 +38,9 @@ public class ServletTroca extends HttpServlet {
 		case("receitaSv"):
 			request.getRequestDispatcher("ServletReceita").forward(request, response);
 			break;
+		case("cupomDescontoSv"):
+			request.getRequestDispatcher("ServletCupomDesconto").forward(request, response);
+			break;
 		case("marcaSV"):
 			request.getRequestDispatcher("ServletMarca").forward(request, response);
 			break;
