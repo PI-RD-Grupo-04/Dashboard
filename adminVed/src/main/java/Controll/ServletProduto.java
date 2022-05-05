@@ -58,11 +58,19 @@ public class ServletProduto extends HttpServlet {
 			Delete(request, response);
 
 		} else if (option.equals("insert")) {
+<<<<<<< HEAD
 			Insert(request, response);
 
 		}
 
 		// pesquisa pessaol
+=======
+	//		Insert(request, response);
+			
+		}	
+		
+		//pesquisa pessaol 
+>>>>>>> e5e866c1107e2e40434245c21da6540132a7b75e
 		if (option.equals("btnsearch")) {
 			String search = request.getParameter("search");
 			request.setAttribute("lista", dao.ListProdutoLike(search));
@@ -133,6 +141,7 @@ public class ServletProduto extends HttpServlet {
 			Integer id1 = Integer.parseInt(id);
 			dao = new ProdutoDAO();
 			dao.removeProduto(id1);
+<<<<<<< HEAD
 		}
 	}
 
@@ -159,3 +168,11 @@ public class ServletProduto extends HttpServlet {
 	}
 
 }
+=======
+		}		
+	}	
+	
+	
+	}
+	
+>>>>>>> e5e866c1107e2e40434245c21da6540132a7b75e

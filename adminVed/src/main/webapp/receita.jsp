@@ -59,14 +59,15 @@
 						<button type="submit" name="option" value="marcaSV"
 							class="nav-link text-white justify-content-center btn-info ">Marcas</button>
 					</li>
-								<li class="nav-item d-grid gap-2">
+					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="bandeiraSv"
 							class="nav-link text-white justify-content-center btn-info ">Bandeira</button>
 					</li>
-										<li class="nav-item d-grid gap-2">
+					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="receitaSv"
 							class="nav-link text-white justify-content-center btn-info ">Receita</button>
 					</li>
+
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="fornecedorSV"
 							class="nav-link text-white justify-content-center btn-info ">Fornecedores</button>
@@ -108,10 +109,20 @@
 						class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
 						<li class="breadcrumb-item text-sm"><a
 							class="opacity-5 text-dark" href="#">Paginas</a></li>
-						<li class="breadcrumb-item text-sm text-dark " aria-current="page">Cliente</li>
+						<li class="breadcrumb-item text-sm text-dark " aria-current="page">Receita</li>
 					</ol>
-					<h1 class="-bolder mb-0">Clientes Cadastrados</h1>
-
+					<h1 class="-bolder mb-0">Receita</h1>
+					<form action="ServletReceita" method="post">
+						<button type="submit" class="btn btn-info mb-3" name="option"
+							value="insertForm">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+								fill="currentColor" class="bi bi-plus-square-fill"
+								viewBox="0 0 16 16">
+                                    <path
+									d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                </svg>
+						</button>
+					</form>
 				</nav>
 				<div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4"
 					id="navbar">
@@ -120,13 +131,13 @@
 						<li class="nav-item d-flex align-items-center "><i
 							class="fa fa-user me-sm-1"></i> <c:choose>
 								<c:when test="${applicationScope.nome != null}">
-Olá,
-${applicationScope.nome}
-</c:when>
+								Olá,
+								${applicationScope.nome}
+								</c:when>
 								<c:otherwise>
 									<%
-response.sendRedirect("login.jsp");
-%>
+									response.sendRedirect("login.jsp");
+									%>
 								</c:otherwise>
 							</c:choose></li>
 						<li class="nav-item d-xl-none ps-3 d-flex align-items-center">
@@ -152,7 +163,8 @@ response.sendRedirect("login.jsp");
 				</div>
 			</div>
 		</nav>
-		<div class="container-fluid">
+		<div class="container-fluid ">
+
 			<!-- End Navbar -->
 			<div class="container-fluid py-2">
 				<div class="row">
@@ -162,47 +174,63 @@ response.sendRedirect("login.jsp");
 								class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
 								<div class="btn-success border-radius-lg pt-4 pb-3">
 									<h6 class="text-white text-capitalize ps-3">Tabela de
-										Clientes</h6>
+										Status</h6>
 								</div>
 							</div>
-							<div class="card-body px-0 pb-2">
+							<div class="card-body px-0 pb-2 overflow-scroll over">
 								<div class="table-responsive p-0 ">
 									<table class="table mt-5">
 										<thead class="thead-dark">
 											<tr class="text-center">
 												<th scope="col">Id</th>
-												<th scope="col">Nome</th>
-												<th scope="col">Sobrenome</th>
-												<th scope="col">CPF</th>
-												<th scope="col">Email</th>
-												<th scope="col">Mais Info</th>
-
+												<th scope="col">Ingredientes</th>
+												<th scope="col">Preparo</th>
+												<th scope="col">Titulo</th>
+												<th scope="col">Opção</th>
 											</tr>
 										</thead>
 										<tbody>
-
-											<c:forEach var="cliente" items="${lista}">
-												<form action="ServletCliente" method="post">
+											<c:forEach var="receita" items="${lista}">
+												<form action="ServletReceita" method="post">
 													<tr class="text-center">
-														<input type="hidden" name="id" value="${cliente.id}" />
+														<input type="hidden" name="id" value="${receita.id_receita}" />
+														<td>${receita.id_receita}</td>
+														<td>${receita.ingredientes}</td>
+														<td>${receita.preparo}</td>
+														<td>${receita.titulo}</td>
+														<!-- Modal -->
+														<div class="modal fade" id="modelDelete-${receita.id_receita}"
+															tabindex="-1" aria-labelledby="modelDeleteLabel"
+															aria-hidden="true">
+															<div class="modal-dialog">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<h5 class="modal-title" id="modelDeleteLabel">
+																			Confirmação de Exclusão</h5>
+																		<button type="button" class="btn-close"
+																			data-bs-dismiss="modal" aria-label="Close"></button>
+																	</div>
+																	<div class="modal-body">
+																		Deseja excluir permanentemente o Item:
+																		${receita.titulo} ? <input type="hidden"
+																			name="id" value="${receita.id_receita}" />
+																	</div>
 
-														<td>${cliente.id}</td>
-														<td>${cliente.nome}</td>
-														<td>${cliente.sobrenome}</td>
-														<td class="cpf">${cliente.cpf}</td>
-														<td>${cliente.email}</td>
+																	<div class="modal-footer">
+																		<button type="button" class="btn btn-secondary"
+																			data-bs-dismiss="modal">Close</button>
+																		<button type="submit" class="btn btn-success"
+																			name="option" value="delete">Deletar</button>
+																	</div>
+																</div>
+															</div>
+														</div>
 														<td>
-															<button type="submit" name="option" value="informacao"
-																class="btn  btn-success btn-outline-success	">
-																<svg xmlns="http://www.w3.org/2000/svg" width="16"
-																	height="16" fill="currentColor" class="bi bi-card-text"
-																	viewBox="0 0 16 16">
-											  <path
-																		d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
-											  <path
-																		d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z" />
-											</svg>
-															</button>
+															<button type="button" data-bs-toggle="modal"
+																class="btn-success btn "
+																data-bs-target="#modelDelete-${receita.id_receita}">Remover</button>
+															<button type="submit" name="option" value="updateForm"
+																class="btn-success btn ">Alterar</button>
 														</td>
 													</tr>
 												</form>
@@ -216,6 +244,61 @@ response.sendRedirect("login.jsp");
 				</div>
 			</div>
 		</div>
+
+		<script function mostraDialogo(mensagem, tipo, tempo){
+    
+    // se
+			houver outro alert desse sendo exibido, cancela essa requisição
+			if($("#message").is(":visible")){
+        return
+			false;
+    }
+
+    // se não setar o tempo, o padrão é 3 segundos
+			if(!tempo){
+        var tempo=3000; }
+
+    // se não setar o tipo, o
+			padrão é alert-info if(!tipo){
+        var tipo="info"
+			;
+    }
+
+    // monta o css da mensagem para que fique flutuando na
+			frente de todos elementos da página var
+			cssMessage="display: block; position: fixed; top: 0; left: 20%; right: 20%; width: 60%; padding-top: 10px; z-index: 9999"
+			;
+    var cssInner="margin: 0 auto; box-shadow: 1px 1px 5px black;"
+			;
+
+    // monta o html da mensagem com Bootstrap var dialogo=""
+			;
+    dialogo +='<div id="message" style="'+cssMessage+'">'
+			;
+    dialogo +='    <div class="alert alert-'+tipo+' alert-dismissable" style="'+cssInner+'">'
+			;
+    dialogo +='    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>'
+			;
+    dialogo +=mensagem; dialogo +='    </div>'
+			;
+    dialogo +='</div>' ;
+
+    // adiciona ao body a mensagem com o
+			efeito de
+			fade
+    $("body").append(dialogo);
+    $("#message").hide();
+    $("#message").fadeIn(200);
+
+    // contador
+			de tempo para a mensagem sumir setTimeout(function() {
+        $('#message').fadeOut(300, function(){
+            $(this).remove();
+        });
+    }, tempo); // milliseconds
+
+}
+ />
 		<!--   Core JS Files   -->
 		<script src="js/core/popper.min.js"></script>
 		<script src="js/core/bootstrap.min.js"></script>
@@ -236,12 +319,12 @@ response.sendRedirect("login.jsp");
 		<script src="js/material-dashboard.min.js?v=3.0.0"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
-				$('.cpf').mask('000.000.000-00');
+				$('#cpf').mask('000.000.000-00');
 				$('#dinheiro').mask('0.000,00');
 				$('#peso').mask('00,000');
-				$('.date').mask('00/00/0000');
-				$('#cnpj').mask('00.000.000/0000-00');
-				$('.telefone').mask('(00) 0000-0000');
+				$('#date').mask('00/00/0000');
+				$('.cnpj').mask('00.000.000/0000-00');
+				$('#telefone').mask('(00) 0000-0000');
 				$('#anomes').mask('00/0000');
 				$('#cep').mask('00000-000');
 
@@ -252,6 +335,5 @@ response.sendRedirect("login.jsp");
 		<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
 		<script src="js/material-dashboard.min.js?v=3.0.0"></script>
 </body>
+
 </html>
-
-

@@ -8,28 +8,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.BandeiraDAO;
-import entidades.Bandeira;
+import dao.ReceitaDAO;
+import entidades.Receita;
 
 
-@WebServlet("/ServletBandeira")
-public class ServletBandeira extends HttpServlet {
+@WebServlet("/ServletReceita")
+public class ServletReceita extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private BandeiraDAO dao;
+    private ReceitaDAO dao;
 
-    public ServletBandeira() {
+    public ServletReceita() {
         super();
-        dao = new BandeiraDAO();
+        dao = new ReceitaDAO(); 
     }
+
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {				
-		request.setAttribute("lista", dao.getlistBandeira());
-		
-		String option = request.getParameter("option");	
+		request.setAttribute("lista", dao.getListFornecedor());
+		String option = request.getParameter("option");
 		
 		if(option.equals("insertForm")) {
 			InsertForm(request, response);
@@ -45,36 +45,43 @@ public class ServletBandeira extends HttpServlet {
 		
 		} else if (option.equals("insert")) {
 			Insert(request, response);
-		}
-		request.setAttribute("lista", dao.getlistBandeira());
-		request.getRequestDispatcher("bandeira.jsp").forward(request, response);
+			
+		}				
+		
+		request.setAttribute("lista", dao.getListFornecedor());
+		request.getRequestDispatcher("receita.jsp").forward(request, response);		
+			
 	}
-	
 	
 	
 	protected void InsertForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("cadastroBandeira.jsp").forward(request, response);		
+		request.getRequestDispatcher("cadastroReceita.jsp").forward(request, response);		
 	}
 	
-	
+
 	protected void UpdateForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
+		
 		Integer id1 = Integer.parseInt(id);
-		Bandeira Buscar =  dao.buscarBandeira(id1);
-		request.setAttribute("bandeira", Buscar);
-		request.getRequestDispatcher("cadastroBandeira.jsp").forward(request, response);		
+		Receita Buscar=  dao.buscarReceita(id1);
+		request.setAttribute("receita", Buscar);
+		request.getRequestDispatcher("cadastroReceita.jsp").forward(request, response);		
 	}
 	
+	
 	protected void Update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
-		String descricao = request.getParameter("nome_bandeira");
-		if ((descricao != null)) {
-			if (!descricao.equals("")){
-				dao = new BandeiraDAO();
-				Integer id1 = Integer.parseInt(id);
-				Bandeira bandeira = new Bandeira(descricao);
-				bandeira.setId(id1);
-				dao.updateMarca(bandeira);	
+		String id_receita = request.getParameter("id_receita");
+		String ingredientes = request.getParameter("ingredientes");
+		String preparo = request.getParameter("preparo");
+		String titulo = request.getParameter("titulo");
+	
+		if ((ingredientes!= null) && (preparo != null) && (titulo != null)) {
+			if (!ingredientes.equals("")){
+				dao = new ReceitaDAO();
+				Integer id1 = Integer.parseInt(id_receita);
+				Receita receita = new Receita(ingredientes, preparo, titulo);
+				receita.setId_receita(id1);
+				dao.updateReceita(receita);		
 			}
 		} 		
 	}
@@ -84,19 +91,24 @@ public class ServletBandeira extends HttpServlet {
 		String id = request.getParameter("id");
 		if (id != null) {
 			Integer id1 = Integer.parseInt(id);
-			dao = new BandeiraDAO();
-			dao.removeBandeira(id1);
+			dao = new ReceitaDAO();
+			dao.removeReceita(id1);
 		}		
 	}
 	
 	
 	protected void Insert(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nome_bandeira = request.getParameter("nome_bandeira");
-		if ((nome_bandeira != null)) {
-			if (!nome_bandeira.equals("")){
-				 dao = new BandeiraDAO();
-				 Bandeira bandeira = new Bandeira(nome_bandeira);
-				 dao.addBandeira(bandeira);
+		String ingredientes = request.getParameter("ingredientes");
+		String preparo = request.getParameter("preparo");
+		String titulo = request.getParameter("titulo");
+	
+
+		
+		if ((ingredientes!= null) && (preparo != null) && (titulo != null)) {
+			if (!ingredientes.equals("")){
+				 dao = new ReceitaDAO();
+				 Receita receita = new Receita(ingredientes, preparo, titulo);
+				 dao.addReceita(receita);
 			}
 		}	
 	}
