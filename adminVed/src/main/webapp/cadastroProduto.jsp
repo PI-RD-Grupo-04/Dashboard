@@ -50,7 +50,7 @@
 		<hr class="horizontal light mt-0 mb-2">
 		<div class="overflow" id="sidenav-collapse-main">
 			<form action="ServletTroca" method="post">
-				<ul class="navbar-nav">
+								<ul class="navbar-nav">
 					<li class="nav-item  d-grid gap-2">
 						<button type="submit" name="option" value="produtoSV"
 							class="nav-link text-white justify-content-center btn-info ">
@@ -59,6 +59,34 @@
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="marcaSV"
 							class="nav-link text-white justify-content-center btn-info ">Marcas</button>
+					</li>
+<<<<<<< HEAD
+					<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="bandeiraSv"
+							class="nav-link text-white justify-content-center btn-info ">Bandeira</button>
+					</li>
+					<li class="nav-item d-grid gap-2">
+=======
+							<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="bandeiraSv"
+							class="nav-link text-white justify-content-center btn-info ">Bandeira</button>
+					</li>
+						<li class="nav-item d-grid gap-2">
+>>>>>>> 455bfa8dc82363303d1842ea8a2da0a0044808bc
+						<button type="submit" name="option" value="receitaSv"
+							class="nav-link text-white justify-content-center btn-info ">Receita</button>
+					</li>
+						<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="armazenamentoSv"
+							class="nav-link text-white justify-content-center btn-info ">Armazenamento</button>
+					</li>
+					<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="cupomDescontoSv"
+							class="nav-link text-white justify-content-center btn-info ">Cupom Desconto</button>
+					</li>
+					<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="tipoFreteSv"
+							class="nav-link text-white justify-content-center btn-info ">Tipo de Frete</button>
 					</li>
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="fornecedorSV"
@@ -208,7 +236,7 @@
 						<div class="form-group" style="text-align-last: left;">
 							<label for="nome" class="form-label">Imagem url:</label> <input
 								type="text" style="background-color: rgb(255, 255, 255);"
-								class="form-control" name="imagem" value="${produto.imagem}"
+								class="form-control" name="imagem" value="${produto.url}"
 								required>
 						</div>
 
@@ -222,6 +250,38 @@
 								</c:forEach>
 							</select>
 						</div>
+						<div class="form-group mt-3" style="text-align-last: left;">
+							<label for="fornecedor" class="form-label">Fornecedor:</label> <select
+								style="background-color: rgb(255, 255, 255);" id="fornecedor"
+								name="fornecedor" class="form-select form-select-md">
+								<c:forEach var="fornecedor" items="${listaFornecedor}">
+									<option value="${fornecedor.id}">
+										${fornecedor.razao_social}</option>
+								</c:forEach>
+							</select>
+						</div>
+
+						<div class="form-group mt-3" style="text-align-last: left;">
+							<label for="armazenamento " class="form-label">Armazenamento:</label>
+							<select style="background-color: rgb(255, 255, 255);"
+								id="armazenamento" name="armazenamento"
+								class="form-select form-select-md">
+								<c:forEach var="armazenamento" items="${listaArmazenamento}">
+									<option value="${armazenamento.id}">
+										${armazenamento.descricao}</option>
+								</c:forEach>
+							</select>
+						</div>
+
+						<div class="form-group mt-3" style="text-align-last: left;">
+							<label for="receita " class="form-label">Receita:</label> <select
+								style="background-color: rgb(255, 255, 255);" id="receita"
+								name="receita" class="form-select form-select-md">
+								<c:forEach var="receita" items="${listaReceita}">
+									<option value="${receita.id}">${receita.titulo}</option>
+								</c:forEach>
+							</select>
+						</div>
 
 						<div class="form-group mt-3" style="text-align-last: left;">
 							<label for="nome" class="form-label">Marca:</label> <select
@@ -232,7 +292,12 @@
 								</c:forEach>
 							</select>
 						</div>
-
+						<div class="form-group" style="text-align-last: left;">
+							<label for="nome" class="form-label">Quantidade:</label> <input
+								type="number" style="background-color: rgb(255, 255, 255);"
+								class="form-control" name="quantidade"
+								value="${produto.quantidade}" required>
+						</div>
 						<div class="form-group mt-3" style="text-align-last: left;">
 							<label for="nome" class="form-label">Descrição:</label> <input
 								style="background-color: rgb(255, 255, 255);" type="text"

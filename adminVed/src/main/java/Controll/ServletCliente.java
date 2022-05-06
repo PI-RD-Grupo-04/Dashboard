@@ -1,6 +1,8 @@
 package Controll;
 
+
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +23,6 @@ public class ServletCliente extends HttpServlet {
         super();
         dao = new ClienteDAO();
     }
-
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);

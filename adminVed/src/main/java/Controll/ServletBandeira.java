@@ -67,7 +67,7 @@ public class ServletBandeira extends HttpServlet {
 	
 	protected void Update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
-		String descricao = request.getParameter("nomeBandeira");
+		String descricao = request.getParameter("nome_bandeira");
 		if ((descricao != null)) {
 			if (!descricao.equals("")){
 				dao = new BandeiraDAO();
@@ -91,11 +91,11 @@ public class ServletBandeira extends HttpServlet {
 	
 	
 	protected void Insert(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nomeBandeira = request.getParameter("nomeBandeira");
-		if ((nomeBandeira != null)) {
-			if (!nomeBandeira.equals("")){
+		String nome_bandeira = request.getParameter("nome_bandeira");
+		if ((nome_bandeira != null)) {
+			if (!nome_bandeira.equals("")){
 				 dao = new BandeiraDAO();
-				 Bandeira bandeira = new Bandeira(nomeBandeira);
+				 Bandeira bandeira = new Bandeira(nome_bandeira);
 				 dao.addBandeira(bandeira);
 			}
 		}	

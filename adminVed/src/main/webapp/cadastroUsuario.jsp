@@ -50,42 +50,62 @@
         <hr class="horizontal light mt-0 mb-2">
         <div class="overflow" id="sidenav-collapse-main">
             <form action="ServletTroca" method="post">
-                <ul class="navbar-nav">
-                    <li class="nav-item  d-grid gap-2">
-                        <button type="submit" name="option" value="produtoSV"
-                            class="nav-link text-white justify-content-center btn-info ">
-                            Produtos
-                        </button>
-                    </li>
-                    <li class="nav-item d-grid gap-2">
-                        <button type="submit" name="option" value="marcaSV"
-                            class="nav-link text-white justify-content-center btn-info ">Marcas</button>
-                    </li>
-                    <li class="nav-item d-grid gap-2">
-                        <button type="submit" name="option" value="fornecedorSV"
-                            class="nav-link text-white justify-content-center btn-info ">Fornecedores</button>
-                    </li>
-                    <li class="nav-item d-grid gap-2">
-                        <button type="submit" name="option" value="categoriaSV"
-                            class="nav-link text-white justify-content-center btn-info ">Categorias</button>
-                    </li>
-                    <li class="nav-item d-grid gap-2">
-                        <button type="submit" name="option" value="listaClienteSV"
-                            class="nav-link text-white justify-content-center btn-info ">Clientes</button>
-                    <li class="nav-item d-grid gap-2">
-                        <button type="submit" name="option" value="listaPedidoSV"
-                            class="nav-link text-white justify-content-center btn-info ">Pedidos</button>
-                    </li>
+               				<ul class="navbar-nav">
+					<li class="nav-item  d-grid gap-2">
+						<button type="submit" name="option" value="produtoSV"
+							class="nav-link text-white justify-content-center btn-info ">
+							Produtos</button>
+					</li>
+					<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="marcaSV"
+							class="nav-link text-white justify-content-center btn-info ">Marcas</button>
+					</li>
+							<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="bandeiraSv"
+							class="nav-link text-white justify-content-center btn-info ">Bandeira</button>
+					</li>
+						<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="receitaSv"
+							class="nav-link text-white justify-content-center btn-info ">Receita</button>
+					</li>
+						<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="armazenamentoSv"
+							class="nav-link text-white justify-content-center btn-info ">Armazenamento</button>
+					</li>
+					<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="cupomDescontoSv"
+							class="nav-link text-white justify-content-center btn-info ">Cupom Desconto</button>
+					</li>
+					<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="tipoFreteSv"
+							class="nav-link text-white justify-content-center btn-info ">Tipo de Frete</button>
+					</li>
+					<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="fornecedorSV"
+							class="nav-link text-white justify-content-center btn-info ">Fornecedores</button>
+					</li>
+					<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="categoriaSV"
+							class="nav-link text-white justify-content-center btn-info ">Categorias</button>
+					</li>
+					<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="listaClienteSV"
+							class="nav-link text-white justify-content-center btn-info ">Clientes</button>
+					<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="listaPedidoSV"
+							class="nav-link text-white justify-content-center btn-info ">Pedidos</button>
+					</li>
 
-                    <li class="nav-item d-grid gap-2">
-                        <button type="submit" name="option" value="statusProdutoSV"
-                            class="nav-link text-white justify-content-center btn-info ">Status Produto</button>
-                    </li>
-                    <li class="nav-item d-grid gap-2">
-                        <button type="submit" name="option" value="funcionarioSV"
-                            class="nav-link text-white justify-content-center btn-info ">Funcionario</button>
-                    </li>
-                </ul>
+					<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="statusProdutoSV"
+							class="nav-link text-white justify-content-center btn-info ">Status
+							Produto</button>
+					</li>
+					<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="funcionarioSV"
+							class="nav-link text-white justify-content-center btn-info ">Funcionario</button>
+					</li>
+				</ul>
             </form>
         </div>
         <div class="sidenav-footer position-absolute w-100 bottom-0 ">

@@ -46,7 +46,7 @@
 		<hr class="horizontal light mt-0 mb-2">
 		<div class="overflow" id="sidenav-collapse-main">
 			<form action="ServletTroca" method="post">
-				<ul class="navbar-nav">
+							<ul class="navbar-nav">
 					<li class="nav-item  d-grid gap-2">
 						<button type="submit" name="option" value="produtoSV"
 							class="nav-link text-white justify-content-center btn-info ">
@@ -55,6 +55,26 @@
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="marcaSV"
 							class="nav-link text-white justify-content-center btn-info ">Marcas</button>
+					</li>
+							<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="bandeiraSv"
+							class="nav-link text-white justify-content-center btn-info ">Bandeira</button>
+					</li>
+						<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="receitaSv"
+							class="nav-link text-white justify-content-center btn-info ">Receita</button>
+					</li>
+						<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="armazenamentoSv"
+							class="nav-link text-white justify-content-center btn-info ">Armazenamento</button>
+					</li>
+					<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="cupomDescontoSv"
+							class="nav-link text-white justify-content-center btn-info ">Cupom Desconto</button>
+					</li>
+					<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="tipoFreteSv"
+							class="nav-link text-white justify-content-center btn-info ">Tipo de Frete</button>
 					</li>
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="fornecedorSV"
@@ -218,7 +238,7 @@
 												<th scope="col">Categoria</th>
 												<th scope="col">Marca</th>
 												<th scope="col">Status</th>
-												<th scope="col">Peso</th>
+												<th scope="col">quantidade</th>
 												<th scope="col" class="text-center">Opções</th>
 
 											</tr>
@@ -231,14 +251,13 @@
 
 														<td>${produto.id}</td>
 														<td>${produto.nome}</td>
-
 														<td><fmt:setLocale value="pt_BR" /> R$ <fmt:formatNumber
 																type="number" minFractionDigits="2"
 																value="${produto.preco} " /></td>
-														<td>${produto.categoria2}</td>
-														<td>${produto.marca2}</td>
-														<td>${produto.status2}</td>
-														<td>KG ${produto.peso}</td>
+														<td>${produto.categoriaTxt}</td>
+														<td>${produto.marcaTxt}</td>
+														<td>${produto.statusProdutoTxt}</td>
+														<td>${produto.quantidade}</td>
 														<!-- Modal -->
 														<div class="modal fade" id="modelDelete-${produto.id}"
 															tabindex="-1" aria-labelledby="modelDeleteLabel"
@@ -285,7 +304,6 @@
 				</div>
 			</div>
 		</div>
-
 
 		<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 20">
 			<div id="liveToast" class="toast" role="alert" aria-live="assertive"

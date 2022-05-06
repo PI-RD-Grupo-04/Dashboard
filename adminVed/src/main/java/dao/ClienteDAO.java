@@ -11,7 +11,6 @@ import entidades.Cartao;
 import entidades.Cliente;
 import entidades.Endereco;
 import entidades.Pedido;
-import entidades.PedidoLista;
 import utilidades.Conexao;
 
 public class ClienteDAO {
@@ -20,7 +19,6 @@ public class ClienteDAO {
     public ClienteDAO() {
 		
 	}
-
 
     public ArrayList<Cliente> Cliente(Integer id){
 		Conexao conexao = Conexao.getInstance();
@@ -35,9 +33,9 @@ public class ClienteDAO {
 			
 			while (resultSet.next()) {
 				Integer id2 = resultSet.getInt("id_cliente");
-				String nome = resultSet.getString("nome_cliente");
-				String sobrenome = resultSet.getString("sobrenome_cliente");
-				String cpf = resultSet.getString("CPF");
+				String nome = resultSet.getString("nome");
+				String sobrenome = resultSet.getString("sobrenome");
+				String cpf = resultSet.getString("cpf");
 				Date nascimento = resultSet.getDate("data_nascimento");
 				String email = resultSet.getString("email");
 				String telefone = resultSet.getString("telefone");
@@ -63,9 +61,9 @@ public class ClienteDAO {
 			
 			while (resultSet.next()) {
 				Integer id2 = resultSet.getInt("id_cliente");
-				String nome = resultSet.getString("nome_cliente");
-				String sobrenome = resultSet.getString("sobrenome_cliente");
-				String cpf = resultSet.getString("CPF");
+				String nome = resultSet.getString("nome");
+				String sobrenome = resultSet.getString("sobrenome");
+				String cpf = resultSet.getString("cpf");
 				Date nascimento = resultSet.getDate("data_nascimento");
 				String email = resultSet.getString("email");
 				String telefone = resultSet.getString("telefone");
