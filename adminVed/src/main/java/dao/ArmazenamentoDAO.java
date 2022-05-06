@@ -10,9 +10,7 @@ import entidades.Armazenamento;
 import utilidades.Conexao;
 
 public class ArmazenamentoDAO {
-	
-	
-	
+		
 	public void AddArmazenamento(Armazenamento newUser) {
 		Conexao conexao = Conexao.getInstance();
 		Connection connection = conexao.getConnection();
