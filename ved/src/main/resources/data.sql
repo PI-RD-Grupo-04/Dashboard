@@ -1,1 +1,0 @@
-insert into cliente values (1,"123456789", 10/10/1999,"guinh.pspp@gmail.com","jeff","","123","bispo","11985254565");
