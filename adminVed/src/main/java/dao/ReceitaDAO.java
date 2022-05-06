@@ -45,7 +45,7 @@ public class ReceitaDAO {
 				String preparo = resultSet.getString("preparo");
 				String titulo = resultSet.getString("titulo");
 				Receita receita = new Receita(ingredientes, preparo, titulo);
-				receita.setId_receita(id2);
+				receita.setId(id2);
 				lista.add(receita);
 			}
 			resultSet.close();
@@ -81,7 +81,7 @@ public class ReceitaDAO {
 			preStat.setString(1, updateUser.getIngredientes());
 			preStat.setString(2, updateUser.getPreparo());
 			preStat.setString(3, updateUser.getTitulo());
-			preStat.setInt(4, updateUser.getId_receita());
+			preStat.setInt(4, updateUser.getId());
 			System.out.println(preStat);
 			preStat.executeUpdate();
 			System.out.println("Comando executado");
@@ -106,7 +106,7 @@ public class ReceitaDAO {
 				String preparo = resultSet.getString("preparo");
 				String titulo = resultSet.getString("titulo");
 				receita = new Receita(ingredientes, preparo, titulo);
-				receita.setId_receita(id_receita);
+				receita.setId(id_receita);
 				
 			}
 			 resultSet.close();

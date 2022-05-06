@@ -165,10 +165,16 @@ public class ServletProduto extends HttpServlet {
 				&& (descricao != null) && (status != null) && (peso != null)) {
 			if (!nome.equals("")) {
 				dao = new ProdutoDAO();
-				Produto produto = new Produto(nome, new BigDecimal(preco), imagem, descricao, Double.parseDouble(peso),
-								  Integer.parseInt(quantidade),  Integer.parseInt(categoria), Integer.parseInt(marca), Integer.parseInt(status),
-								  Integer.parseInt(armazenamento), Integer.parseInt(fornecedor), Integer.parseInt(receita));    
-				
+				Double peso1 =  Double.parseDouble(peso);
+				Integer quant = Integer.parseInt(quantidade); 
+				Integer categoria1 =  Integer.parseInt(categoria); 
+				Integer marca1 =  Integer.parseInt(marca); 
+				Integer status1 = Integer.parseInt(status);
+				Integer armazenamento1 = Integer.parseInt(armazenamento); 
+				Integer fornecedor1 = Integer.parseInt(fornecedor); 
+				Integer receita1 =  Integer.parseInt(receita); 
+				BigDecimal preco1 =  new BigDecimal(preco);
+				Produto produto = new Produto(nome,preco1, imagem, descricao,peso1, quant, categoria1,marca1, status1,armazenamento1 , fornecedor1,receita1);    
 				dao.addProduto(produto);
 			}
 		}

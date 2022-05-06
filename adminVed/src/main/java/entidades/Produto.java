@@ -11,9 +11,12 @@ public class Produto {
 	private String descricao;
 	private Double peso;
 	private Integer quantidade;
-	private Integer categoria;
+	private Integer categoria; 
+	private String categoriaTxt; 
 	private Integer marca;
+	private String marcaTxt;
 	private Integer statusProduto;
+	private String statusProdutoTxt;
 	private Integer armazenamento;
 	private Integer fornecedor;
 	private Integer receita;
@@ -35,14 +38,14 @@ public class Produto {
 		this.receita = receita;
 	}
 
-	public Produto(String nome, BigDecimal preco, Integer quantidade, Integer categoria, Integer marca, Integer status
+	public Produto(String nome, BigDecimal preco, Integer quantidade, String categoria, String marca, String status
 			) {
 		this.nome = nome; 
 		this.preco = preco; 
 		this.quantidade = quantidade; 
-		this.categoria = categoria; 
-		this.marca = marca; 
-		this.statusProduto = status;
+		this.categoriaTxt = categoria; 
+		this.marcaTxt = marca; 
+		this.statusProdutoTxt = status;
 		
 	}
 
@@ -80,6 +83,19 @@ public class Produto {
 
 	public String getDescricao() {
 		return descricao;
+	}
+
+	
+	public String getCategoriaTxt() {
+		return categoriaTxt;
+	}
+
+	public String getMarcaTxt() {
+		return marcaTxt;
+	}
+
+	public String getStatusProdutoTxt() {
+		return statusProdutoTxt;
 	}
 
 	public void setDescricao(String descricao) {

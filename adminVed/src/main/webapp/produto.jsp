@@ -246,9 +246,9 @@
 														<td><fmt:setLocale value="pt_BR" /> R$ <fmt:formatNumber
 																type="number" minFractionDigits="2"
 																value="${produto.preco} " /></td>
-														<td>${produto.categoria}</td>
-														<td>${produto.marca}</td>
-														<td>${produto.statusProduto}</td>
+														<td>${produto.categoriaTxt}</td>
+														<td>${produto.marcaTxt}</td>
+														<td>${produto.statusProdutoTxt}</td>
 														<td>${produto.quantidade}</td>
 														<!-- Modal -->
 														<div class="modal fade" id="modelDelete-${produto.id}"
@@ -296,7 +296,6 @@
 				</div>
 			</div>
 		</div>
-
 
 		<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 20">
 			<div id="liveToast" class="toast" role="alert" aria-live="assertive"

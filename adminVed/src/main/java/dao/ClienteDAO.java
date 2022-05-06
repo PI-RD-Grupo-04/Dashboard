@@ -11,7 +11,6 @@ import entidades.Cartao;
 import entidades.Cliente;
 import entidades.Endereco;
 import entidades.Pedido;
-import entidades.PedidoLista;
 import utilidades.Conexao;
 
 public class ClienteDAO {
@@ -20,7 +19,6 @@ public class ClienteDAO {
     public ClienteDAO() {
 		
 	}
-
 
     public ArrayList<Cliente> Cliente(Integer id){
 		Conexao conexao = Conexao.getInstance();
