@@ -1,0 +1,32 @@
+
+.bg-green{
+    background-color: rgb(226, 245, 187);
+    border: 2px solid rgb(0, 0, 0);
+
+} 
+
+
+.border-ip{
+    background-color: rgb(255, 255, 255);
+       border: 2px solid rgb(0, 0, 0); 
+    margin-left: 1px;
+} 
+
+
+.borderr{
+	background-color: rgb(255, 255, 255);
+	 border: 1px solid rgb(0, 0, 0); 
+}
+
+
+.text-left{
+     text-align-last: left;
+}
+
+.bg-gradient-dark1 {
+  background-color: indigo-900;
+ }
+ 
+ .asash{
+ background-color: #198754 !important;
+ }
