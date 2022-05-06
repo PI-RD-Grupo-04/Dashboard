@@ -3,6 +3,8 @@ import java.math.BigDecimal;
 
 import java.math.BigDecimal;
 
+import java.math.BigDecimal;
+
 public class Produto {
 
 	private Integer id;

@@ -50,7 +50,11 @@
 		<hr class="horizontal light mt-0 mb-2">
 		<div class="overflow" id="sidenav-collapse-main">
 			<form action="ServletTroca" method="post">
+<<<<<<< HEAD
 							<ul class="navbar-nav">
+=======
+				<ul class="navbar-nav">
+>>>>>>> 0a520af20fb5aff9538e0d08a157782c68ca5499
 					<li class="nav-item  d-grid gap-2">
 						<button type="submit" name="option" value="produtoSV"
 							class="nav-link text-white justify-content-center btn-info ">
@@ -80,6 +84,10 @@
 						<button type="submit" name="option" value="tipoFreteSv"
 							class="nav-link text-white justify-content-center btn-info ">Tipo de Frete</button>
 					</li>
+<<<<<<< HEAD
+=======
+					
+>>>>>>> 0a520af20fb5aff9538e0d08a157782c68ca5499
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="fornecedorSV"
 							class="nav-link text-white justify-content-center btn-info ">Fornecedores</button>

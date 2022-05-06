@@ -213,6 +213,7 @@ public class ProdutoDAO {
 
 		try {
 			PreparedStatement preStat = connection
+<<<<<<< HEAD
 					.prepareStatement("select p.id_produto as id,p.preco , p.nome_produto as nome , p.quantidade, "
 							+ "c.descricao_categoria as categoria , m.descricao_marca as marca ,st.descricao_status as status "
 							+ "from produto p "
@@ -220,6 +221,15 @@ public class ProdutoDAO {
 							+ "inner join marca m on m.id_marca = p.id_marca  "
 							+ "inner join status_produto st on st.id_status_produto = p.id_status_produto "
 							+ "where p.id_produto =  like ?"
+=======
+					.prepareStatement("select p.id_produto as id,p.preco , p.nome_produto as nome , p.quantidade, \r\n"
+							+ "c.descricao_categoria as categoria , m.descricao_marca as marca ,st.descricao_status as status\r\n"
+							+ "from produto p \r\n"
+							+ "inner join categoria c on c.id_categoria = p.id_categoria \r\n"
+							+ "inner join marca m on m.id_marca = p.id_marca \r\n"
+							+ "inner join status_produto st on st.id_status_produto = p.id_status_produto\r\n"
+							+ "where p.id_produto =  like ?\n"
+>>>>>>> 0a520af20fb5aff9538e0d08a157782c68ca5499
 							+ "	order by p.id_produto; ");
 			preStat.setString(1, produto + "%");
 			ResultSet resultSet = preStat.executeQuery();
@@ -268,6 +278,9 @@ public class ProdutoDAO {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 0a520af20fb5aff9538e0d08a157782c68ca5499
 	// Valor total de Vendas no pa�s
 =======
 	// Valor total de Vendas no paï¿½s

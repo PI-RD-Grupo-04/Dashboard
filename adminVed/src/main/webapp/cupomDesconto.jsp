@@ -50,16 +50,24 @@
 		<hr class="horizontal light mt-0 mb-2">
 		<div class="overflow" id="sidenav-collapse-main">
 			<form action="ServletTroca" method="post">
+<<<<<<< HEAD
 							<ul class="navbar-nav">
 					<li class="nav-item  d-grid gap-2">
 						<button type="submit" name="option" value="produtoSV"
 							class="nav-link text-white justify-content-center btn-info ">
 							Produtos</button>
+=======
+				<ul class="navbar-nav">
+					<li class="nav-item  d-grid gap-2">
+						<button type="submit" name="option" value="produtoSV"
+							class="nav-link text-white justify-content-center btn-info ">Produtos</button>
+>>>>>>> 0a520af20fb5aff9538e0d08a157782c68ca5499
 					</li>
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="marcaSV"
 							class="nav-link text-white justify-content-center btn-info ">Marcas</button>
 					</li>
+<<<<<<< HEAD
 							<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="bandeiraSv"
 							class="nav-link text-white justify-content-center btn-info ">Bandeira</button>
@@ -73,6 +81,21 @@
 							class="nav-link text-white justify-content-center btn-info ">Armazenamento</button>
 					</li>
 					<li class="nav-item d-grid gap-2">
+=======
+					<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="bandeiraSv"
+							class="nav-link text-white justify-content-center btn-info ">Bandeira</button>
+					</li>
+					<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="receitaSv"
+							class="nav-link text-white justify-content-center btn-info ">Receita</button>
+					</li>
+							<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="armazenamentoSv"
+							class="nav-link text-white justify-content-center btn-info ">Armazenamento</button>
+					</li>
+						<li class="nav-item d-grid gap-2">
+>>>>>>> 0a520af20fb5aff9538e0d08a157782c68ca5499
 						<button type="submit" name="option" value="cupomDescontoSv"
 							class="nav-link text-white justify-content-center btn-info ">Cupom Desconto</button>
 					</li>
@@ -80,6 +103,10 @@
 						<button type="submit" name="option" value="tipoFreteSv"
 							class="nav-link text-white justify-content-center btn-info ">Tipo de Frete</button>
 					</li>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0a520af20fb5aff9538e0d08a157782c68ca5499
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="fornecedorSV"
 							class="nav-link text-white justify-content-center btn-info ">Fornecedores</button>
@@ -95,7 +122,10 @@
 						<button type="submit" name="option" value="listaPedidoSV"
 							class="nav-link text-white justify-content-center btn-info ">Pedidos</button>
 					</li>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0a520af20fb5aff9538e0d08a157782c68ca5499
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="statusProdutoSV"
 							class="nav-link text-white justify-content-center btn-info ">Status

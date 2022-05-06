@@ -62,6 +62,7 @@
 						<button type="submit" name="option" value="marcaSV"
 							class="nav-link text-white justify-content-center btn-info ">Marcas</button>
 					</li>
+<<<<<<< HEAD
 							<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="bandeiraSv"
 							class="nav-link text-white justify-content-center btn-info ">Bandeira</button>
@@ -71,6 +72,17 @@
 							class="nav-link text-white justify-content-center btn-info ">Receita</button>
 					</li>
 						<li class="nav-item d-grid gap-2">
+=======
+								<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="bandeiraSv"
+							class="nav-link text-white justify-content-center btn-info ">Bandeira</button>
+					</li>
+										<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="receitaSv"
+							class="nav-link text-white justify-content-center btn-info ">Receita</button>
+					</li>
+							<li class="nav-item d-grid gap-2">
+>>>>>>> 0a520af20fb5aff9538e0d08a157782c68ca5499
 						<button type="submit" name="option" value="armazenamentoSv"
 							class="nav-link text-white justify-content-center btn-info ">Armazenamento</button>
 					</li>

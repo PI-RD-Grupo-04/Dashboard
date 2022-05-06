@@ -1,7 +1,11 @@
 package entidades;
 
+<<<<<<< HEAD
 
 public class Armazenamento{
+=======
+public class Armazenamento {
+>>>>>>> 0a520af20fb5aff9538e0d08a157782c68ca5499
 
 	private Integer id;
 	private String descricao;
@@ -9,7 +13,11 @@ public class Armazenamento{
 	public Armazenamento(String descricao) {
 		this.descricao = descricao;
 	}
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 0a520af20fb5aff9538e0d08a157782c68ca5499
 	public Integer getId() {
 		return id;
 	}
