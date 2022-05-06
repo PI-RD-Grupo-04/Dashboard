@@ -61,13 +61,17 @@
 						<button type="submit" name="option" value="marcaSV"
 							class="nav-link text-white justify-content-center btn-info ">Marcas</button>
 					</li>
-								<li class="nav-item d-grid gap-2">
+					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="bandeiraSv"
 							class="nav-link text-white justify-content-center btn-info ">Bandeira</button>
 					</li>
-										<li class="nav-item d-grid gap-2">
+					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="receitaSv"
 							class="nav-link text-white justify-content-center btn-info ">Receita</button>
+					</li>
+					<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="cupomDescontoSv"
+							class="nav-link text-white justify-content-center btn-info ">Cupom Desconto</button>
 					</li>
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="fornecedorSV"
@@ -213,16 +217,18 @@
 								style="background-color: rgb(255, 255, 255);" name="titulo"
 								value="${receita.titulo}" required>
 						</div>
-						<div class="d-grid gap-2">
-                            	<c:choose>
-                                	<c:when test="${receita == null}">                                
-                                        <button type="button" data-bs-toggle="modal" class="btn-success btn " data-bs-target="#modelDelete">Salvar</button>
-                                	</c:when>
-	                                <c:otherwise>
-	                                    <button type="button" data-bs-toggle="modal" class="btn-success btn " data-bs-target="#modelDelete">atualizar</button>
-	                                </c:otherwise>
-                            	</c:choose>
-                        	</div>
+							<div class="d-grid gap-2">
+							<c:choose>
+								<c:when test="${receita == null}">
+									<button type="button" data-bs-toggle="modal"
+										class="btn-success btn mt-2" data-bs-target="#modelDelete">Salvar</button>
+								</c:when>
+								<c:otherwise>
+									<button type="button" data-bs-toggle="modal"
+										class="btn-success btn mt-2" data-bs-target="#modelDelete">Atualizar</button>
+								</c:otherwise>
+							</c:choose>
+						</div>
 					</form>
 				</div>
 			</div>
