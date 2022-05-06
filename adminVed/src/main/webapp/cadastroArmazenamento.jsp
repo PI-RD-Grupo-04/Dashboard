@@ -39,12 +39,9 @@
 		class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
 		id="sidenav-main">
 		<div class="sidenav-header">
-			<i
-				class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
-				aria-hidden="true" id="iconSidenav"></i> <a class="navbar-brand m-0"
-				href="ServletindexCarol"> <img src="imagens/fav-icon.png"
-				class="navbar-brand-img h-100" alt="main_logo"> <span
-				class="ms-1 -bold text-white">VED</span>
+			<a class="navbar-brand m-0" href="ServletindexCarol"> <img
+				src="imagens/fav-icon.png" class="navbar-brand-img h-100"
+				alt="main_logo"> <span class="ms-1 -bold text-white">VED</span>
 			</a>
 		</div>
 		<hr class="horizontal light mt-0 mb-2">
@@ -60,7 +57,7 @@
 						<button type="submit" name="option" value="marcaSV"
 							class="nav-link text-white justify-content-center btn-info ">Marcas</button>
 					</li>
-								<li class="nav-item d-grid gap-2">
+					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="bandeiraSv"
 							class="nav-link text-white justify-content-center btn-info ">Bandeira</button>
 					</li>
@@ -123,9 +120,9 @@
 						<li class="breadcrumb-item text-sm"><a
 							class="opacity-5 text-dark" href="#">Paginas</a></li>
 						<li class="breadcrumb-item text-sm text-dark active"
-							aria-current="page">Cadastro</li>
+							aria-current="page">cadastro Armazenamento</li>
 					</ol>
-					<h1 class="-bolder mb-0">Cadastro Categoria</h1>
+					<h1 class="-bolder mb-0">cadastro de Armazenamento</h1>
 				</nav>
 				<div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4"
 					id="navbar">
@@ -167,21 +164,19 @@
 			</div>
 		</nav>
 
-
-
 		<div class="container-fluid ">
-			<div class="row ">
-				<div class="col-md-5 mx-auto border text-center ">
+			<div class="row">
+				<div class="col-md-5 mx-auto border text-center">
 					<c:choose>
-						<c:when test="${categoria == null}">
-							<h3>Cadastrar Categoria</h3>
+						<c:when test="${armazenamento == null}">
+							<h3>Cadastrar armazenamento</h3>
 						</c:when>
 						<c:otherwise>
-							<h3>Atualizar Categoria</h3>
+							<h3>Atualizar armazenamento</h3>
 						</c:otherwise>
 					</c:choose>
-					<form method="post" action="ServletCategoria">
-						<input type="hidden" name="id" value="${categoria.id}" />
+					<form method="post" action="ServletArmazenamento">
+						<input type="hidden" name="id" value="${armazenamento.id}" />
 
 						<div class="modal fade" id="modelDelete" tabindex="-1"
 							aria-labelledby="modelDeleteLabel" aria-hidden="true">
@@ -196,7 +191,7 @@
 									<div class="d-grid gap-2">
 										<div class="modal-footer">
 											<c:choose>
-												<c:when test="${categoria == null}">
+												<c:when test="${armazenamento == null}">
 													<button type="submit" class="btn-success btn "
 														name="option" value="insert">ok</button>
 												</c:when>
@@ -212,24 +207,23 @@
 						</div>
 
 						<div class="form-group" style="text-align-last: left">
-							<label for="nome" class="form-label">Categoria:</label> <input
+							<label for="nome" class="form-label">Armazenamento:</label> <input
 								type="text" class="form-control border "
-								style="background-color: rgb(255, 255, 255);" name="descricao"
-								value="${categoria.descricao}" required>
+								style="background-color: rgb(255, 255, 255);" name="descricao_armazenamento"
+								value="${armazenamento.descricao_armazenamento}" required>
 						</div>
 						<div class="d-grid gap-2">
 							<c:choose>
-								<c:when test="${categoria == null}">
+								<c:when test="${armazenamento == null}">
 									<button type="button" data-bs-toggle="modal"
 										class="btn-success btn mt-2" data-bs-target="#modelDelete">Salvar</button>
 								</c:when>
 								<c:otherwise>
 									<button type="button" data-bs-toggle="modal"
-										class="btn-success btn mt-2" data-bs-target="#modelDelete">Atualizar</button>
+										class="btn-success btn mt-2" data-bs-target="#modelDelete">atualizar</button>
 								</c:otherwise>
 							</c:choose>
 						</div>
-
 					</form>
 				</div>
 			</div>
@@ -262,7 +256,6 @@
 				$('#telefone').mask('(00) 0000-0000');
 				$('#anomes').mask('00/0000');
 				$('#cep').mask('00000-000');
-
 			});
 		</script>
 		<!-- Github buttons -->
