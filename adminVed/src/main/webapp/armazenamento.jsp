@@ -60,15 +60,15 @@
 						<button type="submit" name="option" value="marcaSV"
 							class="nav-link text-white justify-content-center btn-info ">Marcas</button>
 					</li>
-								<li class="nav-item d-grid gap-2">
+							<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="bandeiraSv"
 							class="nav-link text-white justify-content-center btn-info ">Bandeira</button>
 					</li>
-								<li class="nav-item d-grid gap-2">
+						<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="receitaSv"
 							class="nav-link text-white justify-content-center btn-info ">Receita</button>
 					</li>
-							<li class="nav-item d-grid gap-2">
+						<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="armazenamentoSv"
 							class="nav-link text-white justify-content-center btn-info ">Armazenamento</button>
 					</li>
@@ -123,10 +123,23 @@
 						<li class="breadcrumb-item text-sm"><a
 							class="opacity-5 text-dark" href="#">Paginas</a></li>
 						<li class="breadcrumb-item text-sm text-dark active"
-							aria-current="page">Cadastro</li>
+							aria-current="page">Armazenamento</li>
 					</ol>
-					<h1 class="-bolder mb-0">Cadastro Categoria</h1>
+					<h1 class="-bolder mb-0">Armazenamento</h1>
+					<form action="ServletArmazenamento" method="post">
+						<button type="submit" class=" btn btn-info mb-3" name="option"
+							value="insertForm">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+								fill="currentColor" class="bi bi-plus-square-fill"
+								viewBox="0 0 16 16">
+                                    <path
+									d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                </svg>
+						</button>
+						
+					</form>
 				</nav>
+
 				<div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4"
 					id="navbar">
 					<div class="ms-md-auto pe-md-3 d-flex align-items-center"></div>
@@ -134,9 +147,9 @@
 						<li class="nav-item d-flex align-items-center "><i
 							class="fa fa-user me-sm-1"></i> <c:choose>
 								<c:when test="${applicationScope.nome != null}">
-								Olá,
-								${applicationScope.nome}
-								</c:when>
+									Olá,
+									${applicationScope.nome}
+									</c:when>
 								<c:otherwise>
 									<%
 									response.sendRedirect("login.jsp");
@@ -166,74 +179,90 @@
 				</div>
 			</div>
 		</nav>
+		<div id="liveAlertPlaceholder"></div>
 
 
 
-		<div class="container-fluid ">
-			<div class="row ">
-				<div class="col-md-5 mx-auto border text-center ">
-					<c:choose>
-						<c:when test="${categoria == null}">
-							<h3>Cadastrar Categoria</h3>
-						</c:when>
-						<c:otherwise>
-							<h3>Atualizar Categoria</h3>
-						</c:otherwise>
-					</c:choose>
-					<form method="post" action="ServletCategoria">
-						<input type="hidden" name="id" value="${categoria.id}" />
+		<div class="container-fluid">
 
-						<div class="modal fade" id="modelDelete" tabindex="-1"
-							aria-labelledby="modelDeleteLabel" aria-hidden="true">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title" id="modelDeleteLabel">Sua ação
-											foi concluida com sucesso!</h5>
-										<button type="button" class="btn-close"
-											data-bs-dismiss="modal" aria-label="Close"></button>
-									</div>
-									<div class="d-grid gap-2">
-										<div class="modal-footer">
-											<c:choose>
-												<c:when test="${categoria == null}">
-													<button type="submit" class="btn-success btn "
-														name="option" value="insert">ok</button>
-												</c:when>
-												<c:otherwise>
-													<button type="submit" class="btn-success btn "
-														name="option" value="update">ok</button>
-												</c:otherwise>
-											</c:choose>
-										</div>
-									</div>
+			<!-- End Navbar -->
+			<div class="container-fluid py-2">
+				<div class="row">
+					<div class="col-12">
+						<div class="card my-4">
+							<div
+								class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+								<div class="btn-success border-radius-lg pt-4 pb-3">
+									<h6 class="text-white text-capitalize ps-3">Tabela de
+										Armazenamento
+										</h6>
+								</div>
+							</div>
+							<div class="card-body px-0 pb-2 overflow-scroll over">
+								<div class="table-responsive p-0 ">
+									<table class="table mt-5">
+										<thead class="thead-dark">
+											<tr class="text-center">
+												<th scope="col">Id</th>
+												<th scope="col">Descrição Armazenamento</th>
+												<th scope="col" class="align-left">Opções</th>
+											</tr>
+										</thead>
+										<tbody>
+											<c:forEach var="armazenamento" items="${lista}">
+												<form action="ServletArmazenamento" method="post">
+													<tr class="text-center">
+														<input type="hidden" name="id" value="${armazenamento.id}" />
+														<td>${armazenamento.id}</td>
+														<td>${armazenamento.descricao}</td>
+														<!-- Modal -->
+														<div class="modal fade" id="modelDelete-${armazenamento.id}"
+															tabindex="-1" aria-labelledby="modelDeleteLabel"
+															aria-hidden="true">
+															<div class="modal-dialog">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<h5 class="modal-title" id="modelDeleteLabel">
+																			Confirmação de Exclusão</h5>
+																		<button type="button" class="btn-close"
+																			data-bs-dismiss="modal" aria-label="Close"></button>
+																	</div>
+																	<div class="modal-body">
+																		Deseja excluir permanentemente o Item:
+																		${armazenamento.descricao} ? <input type="hidden" name="id"
+																			value="${armazenamento.id}" />
+																	</div>
+
+																	<div class="modal-footer">
+																		<button type="button" class="btn btn-secondary"
+																			data-bs-dismiss="modal">Close</button>
+																		<button type="submit" class="btn btn-success"
+																			name="option" id="liveAlertBtn" value="delete">Deletar</button>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<td>
+															<button type="button" data-bs-toggle="modal"
+																id="liveAlertBtn" class="btn-success btn "
+																data-bs-target="#modelDelete-${armazenamento.id}">Remover</button>
+															<button type="submit" name="option" value="updateForm"
+																class="btn-success btn ">Alterar</button>
+														</td>
+													</tr>
+												</form>
+											</c:forEach>
+										</tbody>
+									</table>
 								</div>
 							</div>
 						</div>
-
-						<div class="form-group" style="text-align-last: left">
-							<label for="nome" class="form-label">Categoria:</label> <input
-								type="text" class="form-control border "
-								style="background-color: rgb(255, 255, 255);" name="descricao"
-								value="${categoria.descricao}" required>
-						</div>
-						<div class="d-grid gap-2">
-							<c:choose>
-								<c:when test="${categoria == null}">
-									<button type="button" data-bs-toggle="modal"
-										class="btn-success btn mt-2" data-bs-target="#modelDelete">Salvar</button>
-								</c:when>
-								<c:otherwise>
-									<button type="button" data-bs-toggle="modal"
-										class="btn-success btn mt-2" data-bs-target="#modelDelete">Atualizar</button>
-								</c:otherwise>
-							</c:choose>
-						</div>
-
-					</form>
+					</div>
 				</div>
 			</div>
 		</div>
+
+
 		<!--   Core JS Files   -->
 		<script src="js/core/popper.min.js"></script>
 		<script src="js/core/bootstrap.min.js"></script>
@@ -272,3 +301,5 @@
 </body>
 
 </html>
+
+

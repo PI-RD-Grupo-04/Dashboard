@@ -71,9 +71,17 @@
 						<button type="submit" name="option" value="receitaSv"
 							class="nav-link text-white justify-content-center btn-info ">Receita</button>
 					</li>
+							<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="armazenamentoSv"
+							class="nav-link text-white justify-content-center btn-info ">Armazenamento</button>
+					</li>
 						<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="cupomDescontoSv"
 							class="nav-link text-white justify-content-center btn-info ">Cupom Desconto</button>
+					</li>
+					<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="tipoFreteSv"
+							class="nav-link text-white justify-content-center btn-info ">Tipo de Frete</button>
 					</li>
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="categoriaSV"

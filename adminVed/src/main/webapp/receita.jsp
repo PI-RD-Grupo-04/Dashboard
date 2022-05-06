@@ -67,9 +67,17 @@
 						<button type="submit" name="option" value="receitaSv"
 							class="nav-link text-white justify-content-center btn-info ">Receita</button>
 					</li>
+									<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="armazenamentoSv"
+							class="nav-link text-white justify-content-center btn-info ">Armazenamento</button>
+					</li>
 							<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="cupomDescontoSv"
 							class="nav-link text-white justify-content-center btn-info ">Cupom Desconto</button>
+					</li>
+					<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="tipoFreteSv"
+							class="nav-link text-white justify-content-center btn-info ">Tipo de Frete</button>
 					</li>
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="fornecedorSV"
@@ -232,7 +240,11 @@
 															<button type="button" data-bs-toggle="modal"
 																class="btn-success btn "
 																data-bs-target="#modelDelete-${receita.id}">Remover</button>
+<<<<<<< HEAD
 															<button type="submit" name="option" value="UpdateForm"
+=======
+															<button type="submit" name="option" value="updateForm"
+>>>>>>> 0ec09ff412ef54e60fade0bf9d60c4091a1414b4
 																class="btn-success btn ">Alterar</button>
 														</td>
 													</tr>
