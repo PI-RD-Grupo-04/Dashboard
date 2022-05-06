@@ -214,7 +214,7 @@
 													<tr class="text-center">
 														<input type="hidden" name="id" value="${armazenamento.id}" />
 														<td>${armazenamento.id}</td>
-														<td>${armazenamento.descricao_armazenamento}</td>
+														<td>${armazenamento.descricao}</td>
 														<!-- Modal -->
 														<div class="modal fade" id="modelDelete-${armazenamento.id}"
 															tabindex="-1" aria-labelledby="modelDeleteLabel"
@@ -229,7 +229,7 @@
 																	</div>
 																	<div class="modal-body">
 																		Deseja excluir permanentemente o Item:
-																		${armazenamento.descricao_armazenamento} ? <input type="hidden" name="id"
+																		${armazenamento.descricao} ? <input type="hidden" name="id"
 																			value="${armazenamento.id}" />
 																	</div>
 

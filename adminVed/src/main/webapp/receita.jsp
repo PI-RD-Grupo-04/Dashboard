@@ -204,13 +204,13 @@
 											<c:forEach var="receita" items="${lista}">
 												<form action="ServletReceita" method="post">
 													<tr class="text-center">
-														<input type="hidden" name="id" value="${receita.id_receita}" />
-														<td>${receita.id_receita}</td>
+														<input type="hidden" name="id" value="${receita.id}" />
+														<td>${receita.id}</td>
 														<td>${receita.ingredientes}</td>
 														<td>${receita.preparo}</td>
 														<td>${receita.titulo}</td>
 														<!-- Modal -->
-														<div class="modal fade" id="modelDelete-${receita.id_receita}"
+														<div class="modal fade" id="modelDelete-${receita.id}"
 															tabindex="-1" aria-labelledby="modelDeleteLabel"
 															aria-hidden="true">
 															<div class="modal-dialog">
@@ -224,7 +224,7 @@
 																	<div class="modal-body">
 																		Deseja excluir permanentemente o Item:
 																		${receita.titulo} ? <input type="hidden"
-																			name="id" value="${receita.id_receita}" />
+																			name="id" value="${receita.id}" />
 																	</div>
 
 																	<div class="modal-footer">
@@ -239,8 +239,8 @@
 														<td>
 															<button type="button" data-bs-toggle="modal"
 																class="btn-success btn "
-																data-bs-target="#modelDelete-${receita.id_receita}">Remover</button>
-															<button type="submit" name="option" value="UpdateForm"
+																data-bs-target="#modelDelete-${receita.id}">Remover</button>
+															<button type="submit" name="option" value="updateForm"
 																class="btn-success btn ">Alterar</button>
 														</td>
 													</tr>
