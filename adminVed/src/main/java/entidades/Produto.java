@@ -1,5 +1,4 @@
 package entidades;
-
 import java.math.BigDecimal;
 
 public class Produto {
