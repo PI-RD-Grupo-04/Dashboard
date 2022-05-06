@@ -1,32 +1,38 @@
 package entidades;
 
+import java.util.List;
+
+
+
 public class Armazenamento {
 
-
-	Integer id;
-	String descricao_armazenamento;
+	private Integer id; 
+	private String descricao; 
 	
-	
-	public Armazenamento(String descricao_armazenamento) {
-		super();
-		this.descricao_armazenamento = descricao_armazenamento;
+	public Armazenamento(String descricao) {
+		this.descricao = descricao;
 	}
-	
-	
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getDescricao_armazenamento() {
-		return descricao_armazenamento;
-	}
-	public void setDescricao_armazenamento(String descricao_armazenamento) {
-		this.descricao_armazenamento = descricao_armazenamento;
-	}
-	
 
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	@Override
+	public String toString() {
+		return descricao ;
+	}
 	
 	
 }

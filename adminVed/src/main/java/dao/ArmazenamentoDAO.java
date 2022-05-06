@@ -31,7 +31,7 @@ public class ArmazenamentoDAO {
 	
 	}
 	
-	public ArrayList<Armazenamento> getlistArmazenamento(){
+	public ArrayList<Armazenamento> getlist(){
 		Conexao conexao = Conexao.getInstance();
 		Connection connection = conexao.getConnection();
 		ArrayList<Armazenamento> lista = new ArrayList<Armazenamento>();
@@ -76,7 +76,7 @@ public class ArmazenamentoDAO {
 		
 		try {
 			PreparedStatement preStat = connection.prepareStatement("update armazenamento set descricao_armazenamento = ? where id_armazenamento = ?");
-			preStat.setString(1, updateUser.getDescricao_armazenamento());
+			preStat.setString(1, updateUser.getDescricao());
 			preStat.setInt(2, updateUser.getId());
 			System.out.println(preStat);
 			preStat.executeUpdate();
@@ -113,4 +113,3 @@ public class ArmazenamentoDAO {
 		return armazenamento;
 	}
 }
-

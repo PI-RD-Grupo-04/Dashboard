@@ -267,7 +267,7 @@ public class ProdutoDAO {
 		return null;
 	}
 
-	// Valor total de Vendas no pa�s
+	// Valor total de Vendas no paï¿½s
 	public Integer TotalDeVendas() {
 		Conexao conexao = Conexao.getInstance();
 		Connection connection = conexao.getConnection();
