@@ -10,20 +10,40 @@ import entidades.Armazenamento;
 import utilidades.Conexao;
 
 public class ArmazenamentoDAO {
-
-	public ArrayList<Armazenamento> getlist(){
+	
+	
+	
+	public void AddArmazenamento(Armazenamento newUser) {
 		Conexao conexao = Conexao.getInstance();
 		Connection connection = conexao.getConnection();
-		ArrayList<Armazenamento> lista = new ArrayList<>();
+		
+		try {
+			PreparedStatement preStat = connection.prepareStatement("insert into armazenamento (descricao_armazenamento) values (?)");
+			preStat.setString(1, newUser.getDescricao_armazenamento());
+			System.out.println(preStat);
+			preStat.executeUpdate();
+			System.out.println("Comando executado");
+			preStat.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	
+	
+	}
+	
+	public ArrayList<Armazenamento> getlistArmazenamento(){
+		Conexao conexao = Conexao.getInstance();
+		Connection connection = conexao.getConnection();
+		ArrayList<Armazenamento> lista = new ArrayList<Armazenamento>();
 		try {
 			PreparedStatement preStat = connection.prepareStatement("select * from armazenamento");
 			ResultSet resultSet = preStat.executeQuery();			
 			
 			while (resultSet.next()) {
-				Integer id = resultSet.getInt("id_armazenamento");
-				String descricao = resultSet.getString("descricao_armazenamento");
-				Armazenamento armazenamento = new Armazenamento(descricao);
-				armazenamento.setId(id);
+				Integer id2 = resultSet.getInt("id_armazenamento");
+				String descricao_armazenamento = resultSet.getString("descricao_armazenamento");
+				Armazenamento armazenamento = new Armazenamento(descricao_armazenamento);
+				armazenamento.setId(id2);
 				lista.add(armazenamento);
 			}
 			resultSet.close();
@@ -34,4 +54,63 @@ public class ArmazenamentoDAO {
 		return lista;
 	}
 	
+	public void removeArmazenamento(Integer id) {
+		Conexao conexao = Conexao.getInstance();
+		Connection connection = conexao.getConnection();
+		
+		try {
+			PreparedStatement preStat = connection.prepareStatement("delete from armazenamento where id_armazenamento = ?");
+			preStat.setInt(1, id);
+			System.out.println(preStat);
+			preStat.executeUpdate();
+			System.out.println("Comando executado");
+			preStat.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void updateMarca(Armazenamento updateUser) {
+		Conexao conexao = Conexao.getInstance();
+		Connection connection = conexao.getConnection();
+		
+		try {
+			PreparedStatement preStat = connection.prepareStatement("update armazenamento set descricao_armazenamento = ? where id_armazenamento = ?");
+			preStat.setString(1, updateUser.getDescricao_armazenamento());
+			preStat.setInt(2, updateUser.getId());
+			System.out.println(preStat);
+			preStat.executeUpdate();
+			System.out.println("Comando executado");
+			preStat.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	} 
+	
+	
+	
+	public Armazenamento buscarArmazenamento(Integer id) {
+		Conexao conexao = Conexao.getInstance();
+		Connection connection = conexao.getConnection();
+		Armazenamento armazenamento = null;
+		try {
+			PreparedStatement preStat = connection.prepareStatement("select * from armazenamento where id_armazenamento = ?");
+			preStat.setInt(1, id);
+			ResultSet resultSet = preStat.executeQuery();			
+			while ( resultSet.next()) {
+				
+				Integer ida = resultSet.getInt("id_armazenamento");
+				String descricao = resultSet.getString("descricao_armazenamento");
+				armazenamento  = new Armazenamento(descricao);
+				armazenamento.setId(ida);
+			}
+			 resultSet.close();
+			 preStat.close();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		return armazenamento;
+	}
 }
+
