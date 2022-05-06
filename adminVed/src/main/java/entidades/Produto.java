@@ -1,4 +1,5 @@
 package entidades;
+import java.math.BigDecimal;
 
 import java.math.BigDecimal;
 

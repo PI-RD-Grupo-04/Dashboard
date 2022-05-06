@@ -1,6 +1,7 @@
 package entidades;
 
-public class Armazenamento {
+
+public class Armazenamento{
 
 	private Integer id;
 	private String descricao;
@@ -8,7 +9,7 @@ public class Armazenamento {
 	public Armazenamento(String descricao) {
 		this.descricao = descricao;
 	}
-
+	
 	public Integer getId() {
 		return id;
 	}
