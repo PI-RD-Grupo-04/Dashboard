@@ -18,7 +18,6 @@ public class ServletReceita extends HttpServlet {
     private ReceitaDAO dao;
 
     public ServletReceita() {
-        super();
         dao = new ReceitaDAO(); 
     }
 
@@ -80,7 +79,7 @@ public class ServletReceita extends HttpServlet {
 				dao = new ReceitaDAO();
 				Integer id1 = Integer.parseInt(id_receita);
 				Receita receita = new Receita(ingredientes, preparo, titulo);
-				receita.setId_receita(id1);
+				receita.setId(id1);
 				dao.updateReceita(receita);		
 			}
 		} 		
@@ -101,8 +100,6 @@ public class ServletReceita extends HttpServlet {
 		String ingredientes = request.getParameter("ingredientes");
 		String preparo = request.getParameter("preparo");
 		String titulo = request.getParameter("titulo");
-	
-
 		
 		if ((ingredientes!= null) && (preparo != null) && (titulo != null)) {
 			if (!ingredientes.equals("")){
@@ -112,5 +109,4 @@ public class ServletReceita extends HttpServlet {
 			}
 		}	
 	}
-	
 }

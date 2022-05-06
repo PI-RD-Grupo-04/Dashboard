@@ -91,12 +91,14 @@ public class ProdutoDAO {
 		Connection connection = conexao.getConnection();
 		ArrayList<Produto> listaProduto2 = new ArrayList<Produto>();
 		try {
-			PreparedStatement preStat = connection.prepareStatement("select  * from produto p \n"
-					+ "		inner join categoria c  on p.id_categoria = c.id_categoria \n"
-					+ "		inner join marca  m on p.id_marca = m.id_marca \n"
-					+ "		inner join status_produto sp  on p.id_status_produto = sp.id_status_produto  \n"
-					+ "        inner join fornecedor f on f.id_fornecedor = p.id_fornecedor \n"
-					+ "			order by p.id_produto;\n");
+			PreparedStatement preStat = connection.prepareStatement("select p.id_produto ,p.preco,  p.nome_produto , p.quantidade, "
+					+ "c.descricao_categoria, m.descricao_marca ,st.descricao_status "
+					+ "from produto p "
+					+ "inner join categoria c on c.id_categoria = p.id_categoria "
+					+ "inner join marca m on m.id_marca = p.id_marca "
+					+ "inner join status_produto st on st.id_status_produto = p.id_status_produto "
+					+ "order by p.id_produto");
+			
 			ResultSet resultSet = preStat.executeQuery();
 
 			while (resultSet.next()) {
@@ -104,12 +106,11 @@ public class ProdutoDAO {
 				String nome = resultSet.getString("nome_produto");
 				String preco = resultSet.getString("preco");
 				String quantidade = resultSet.getString("quantidade");
-				String categoria = resultSet.getString("id_categoria");
-				String marca = resultSet.getString("id_marca");
-				String status = resultSet.getString("id_status_produto");
+				String categoria = resultSet.getString("descricao_categoria");
+				String marca = resultSet.getString("descricao_marca");
+				String status = resultSet.getString("descricao_status");
 
-				Produto produto2 = new Produto(nome, new BigDecimal(preco), Integer.parseInt(quantidade),
-						Integer.parseInt(categoria), Integer.parseInt(marca), Integer.parseInt(status));
+				Produto produto2 = new Produto(nome, new BigDecimal(preco), Integer.parseInt(quantidade), categoria, marca, status);
 				produto2.setId(id2);
 				listaProduto2.add(produto2);
 			}
@@ -172,23 +173,28 @@ public class ProdutoDAO {
 		Connection connection = conexao.getConnection();
 		Produto produto = null;
 		try {
-			PreparedStatement preStat = connection.prepareStatement("select * from produto where id_produto = ?");
+			PreparedStatement preStat = connection.prepareStatement("select p.id_produto as id,p.preco , p.nome_produto as nome , p.quantidade, \r\n"
+					+ "c.descricao_categoria as categoria , m.descricao_marca as marca ,st.descricao_status as status\r\n"
+					+ "from produto p \r\n"
+					+ "inner join categoria c on c.id_categoria = p.id_categoria \r\n"
+					+ "inner join marca m on m.id_marca = p.id_marca \r\n"
+					+ "inner join status_produto st on st.id_status_produto = p.id_status_produto\r\n"
+					+ "where p.id_produto =  ?");
 			preStat.setInt(1, id);
 			ResultSet resultSet = preStat.executeQuery();
 			while (resultSet.next()) {
 
-				Integer id2 = resultSet.getInt("id_produto");
-				String nome = resultSet.getString("nome_produto");
+				Integer id2 = resultSet.getInt("id");
+				String nome = resultSet.getString("nome");
 				String preco = resultSet.getString("preco");
-				String quant = resultSet.getString("quantidade");
-				String categoria = resultSet.getString("descricao_categoria");
-				String marca = resultSet.getString("descricao_marca");
-				String status = resultSet.getString("descricao_status");
-				String peso = resultSet.getString("peso_kilo");
+				String quantidade = resultSet.getString("quantidade");
+				String categoria = resultSet.getString("categoria");
+				String marca = resultSet.getString("marca");
+				String status = resultSet.getString("status");
 
-				produto = new Produto(nome, new BigDecimal(preco), Integer.parseInt(quant), Integer.parseInt(categoria),
-						Integer.parseInt(marca), Integer.parseInt(status));
-				produto.setId(id2);
+
+				Produto produto2 = new Produto(nome, new BigDecimal(preco), Integer.parseInt(quantidade), categoria, marca, status);
+				produto2.setId(id2);
 
 			}
 			resultSet.close();
@@ -207,30 +213,28 @@ public class ProdutoDAO {
 
 		try {
 			PreparedStatement preStat = connection
-					.prepareStatement("select p.id_produto,p.nome_produto, p.preco, p.quantidade,p.descricao_produto,\n"
-							+ "	c.descricao_categoria , m.descricao_marca , sp.descricao_status \n"
-							+ "	from produto p\n"
-							+ "		inner join categoria c  on p.id_categoria = c.id_categoria \n"
-							+ "		inner join marca  m on p.id_marca = m.id_marca \n"
-							+ "		inner join status_produto sp  on p.id_status_produto = sp.id_status_produto  \n"
-							+ "        inner join fornecedor f on f.id_fornecedor = p.id_fornecedor \n"
-							+ "        where p.nome_produto like ?\n" + "			order by p.id_produto; ");
+					.prepareStatement("select p.id_produto as id,p.preco , p.nome_produto as nome , p.quantidade, \r\n"
+							+ "c.descricao_categoria as categoria , m.descricao_marca as marca ,st.descricao_status as status\r\n"
+							+ "from produto p \r\n"
+							+ "inner join categoria c on c.id_categoria = p.id_categoria \r\n"
+							+ "inner join marca m on m.id_marca = p.id_marca \r\n"
+							+ "inner join status_produto st on st.id_status_produto = p.id_status_produto\r\n"
+							+ "where p.id_produto =  like ?\n"
+							+ "	order by p.id_produto; ");
 			preStat.setString(1, produto + "%");
 			ResultSet resultSet = preStat.executeQuery();
 
 			while (resultSet.next()) {
-				Integer id2 = resultSet.getInt("id_produto");
-				String nome = resultSet.getString("nome_produto");
+				Integer id2 = resultSet.getInt("id");
+				String nome = resultSet.getString("nome");
 				String preco = resultSet.getString("preco");
-				String quant = resultSet.getString("quantidade");
-				String categoria = resultSet.getString("descricao_categoria");
-				String marca = resultSet.getString("descricao_marca");
-				String status = resultSet.getString("descricao_status");
-				String peso = resultSet.getString("peso_kilo");
-				Produto produto1 = new Produto(nome, new BigDecimal(preco), Integer.parseInt(quant),
-						Integer.parseInt(categoria), Integer.parseInt(marca), Integer.parseInt(status));
-				produto1.setId(id2);
-				listaLike.add(produto1);
+				String quantidade = resultSet.getString("quantidade");
+				String categoria = resultSet.getString("categoria");
+				String marca = resultSet.getString("marca");
+				String status = resultSet.getString("status");
+				Produto produto2 = new Produto(nome, new BigDecimal(preco), Integer.parseInt(quantidade), categoria, marca, status);
+				produto2.setId(id2);
+				listaLike.add(produto2);
 			}
 			resultSet.close();
 			preStat.close();

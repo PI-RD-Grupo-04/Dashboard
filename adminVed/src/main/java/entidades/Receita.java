@@ -2,25 +2,24 @@ package entidades;
 
 public class Receita {
 
-	private Integer id_receita;
+	private Integer id;
 	private String ingredientes;
 	private String preparo;
 	private String titulo;
 
 	public Receita(String ingredientes, String preparo, String titulo) {
-		super();
 		this.ingredientes = ingredientes;
 		this.preparo = preparo;
 		this.titulo = titulo;
 
 	}
 
-	public Integer getId_receita() {
-		return id_receita;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setId_receita(Integer id_receita) {
-		this.id_receita = id_receita;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getIngredientes() {

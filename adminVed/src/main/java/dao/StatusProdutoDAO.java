@@ -23,7 +23,7 @@ public class StatusProdutoDAO {
 		Connection connection = conexao.getConnection();
 		
 		try {
-			PreparedStatement preStat = connection.prepareStatement("insert into status_produto (descricao_produto_status) values (?)");
+			PreparedStatement preStat = connection.prepareStatement("insert into status_produto (descricao_status) values (?)");
 			preStat.setString(1, newStatus.getDescricao());
 			System.out.println(preStat);
 			preStat.executeUpdate();
@@ -45,7 +45,7 @@ public class StatusProdutoDAO {
 			
 			while (resultSet.next()) {
 				Integer id2 = resultSet.getInt("id_status_produto");
-				String descricao = resultSet.getString("descricao_produto_status");
+				String descricao = resultSet.getString("descricao_status");
 				StatusProduto status = new StatusProduto(descricao);
 				status.setId(id2);
 				lista.add(status);
@@ -79,7 +79,7 @@ public class StatusProdutoDAO {
 		Connection connection = conexao.getConnection();
 		
 		try {
-			PreparedStatement preStat = connection.prepareStatement("update status_produto set descricao_produto_status = ? where id_status_produto = ?");
+			PreparedStatement preStat = connection.prepareStatement("update status_produto set descricao_status = ? where id_status_produto = ?");
 			preStat.setString(1, updateStatus.getDescricao());
 			preStat.setInt(2, updateStatus.getId());
 			System.out.println(preStat);
@@ -102,7 +102,7 @@ public class StatusProdutoDAO {
 			while ( resultSet.next()) {
 				
 				Integer ida = resultSet.getInt("id_status_produto");
-				String descricao = resultSet.getString("descricao_produto_status");
+				String descricao = resultSet.getString("descricao_status");
 				status = new StatusProduto(descricao);
 				status.setId(ida);
 				
