@@ -170,7 +170,7 @@
 						</c:otherwise>
 					</c:choose>
 					<form method="post" action="ServletReceita">
-						<input type="hidden" name="id" value="${receita.id_receita}" />
+						<input type="hidden" name="id" value="${receita.id}" />
 						
 						<div class="modal fade" id="modelDelete" tabindex="-1" aria-labelledby="modelDeleteLabel" aria-hidden="true">
                             	<div class="modal-dialog">
