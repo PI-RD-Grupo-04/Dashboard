@@ -1,9 +1,10 @@
 package entidades;
 
 public class Armazenamento {
-	private Integer id; 
-	private String descricao; 
-	
+
+	private Integer id;
+	private String descricao;
+
 	public Armazenamento(String descricao) {
 		this.descricao = descricao;
 	}
@@ -26,11 +27,6 @@ public class Armazenamento {
 
 	@Override
 	public String toString() {
-		return descricao ;
+		return descricao;
 	}
-
-	
-	
-	
-	
 }
