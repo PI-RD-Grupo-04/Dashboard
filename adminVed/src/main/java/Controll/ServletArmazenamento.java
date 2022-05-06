@@ -29,7 +29,7 @@ public class ServletArmazenamento extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {				
-		request.setAttribute("lista", dao.getlistArmazenamento());
+		request.setAttribute("lista", dao.getlist());
 		
 		String option = request.getParameter("option");	
 		
@@ -48,7 +48,7 @@ public class ServletArmazenamento extends HttpServlet {
 		} else if (option.equals("insert")) {
 			Insert(request, response);
 		}
-		request.setAttribute("lista", dao.getlistArmazenamento());
+		request.setAttribute("lista", dao.getlist());
 		request.getRequestDispatcher("armazenamento.jsp").forward(request, response);
 	}
 	

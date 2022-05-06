@@ -19,7 +19,7 @@ public class ArmazenamentoDAO {
 		
 		try {
 			PreparedStatement preStat = connection.prepareStatement("insert into armazenamento (descricao_armazenamento) values (?)");
-			preStat.setString(1, newUser.getDescricao_armazenamento());
+			preStat.setString(1, newUser.getDescricao());
 			System.out.println(preStat);
 			preStat.executeUpdate();
 			System.out.println("Comando executado");
