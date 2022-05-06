@@ -11,8 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import dao.ArmazenamentoDAO;
 import entidades.Armazenamento;
 
-
-
 @WebServlet("/ServletArmazenamento")
 public class ServletArmazenamento extends HttpServlet {
 	private static final long serialVersionUID = 1L;

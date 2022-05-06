@@ -1,7 +1,8 @@
 package entidades;
 
-import java.util.List;
 
+public class Armazenamento {
+	
 	private Integer id;
 	private String descricao;
 
