@@ -50,7 +50,7 @@
 		<hr class="horizontal light mt-0 mb-2">
 		<div class="overflow" id="sidenav-collapse-main">
 			<form action="ServletTroca" method="post">
-				<ul class="navbar-nav">
+								<ul class="navbar-nav">
 					<li class="nav-item  d-grid gap-2">
 						<button type="submit" name="option" value="produtoSV"
 							class="nav-link text-white justify-content-center btn-info ">
@@ -60,15 +60,23 @@
 						<button type="submit" name="option" value="marcaSV"
 							class="nav-link text-white justify-content-center btn-info ">Marcas</button>
 					</li>
+<<<<<<< HEAD
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="bandeiraSv"
 							class="nav-link text-white justify-content-center btn-info ">Bandeira</button>
 					</li>
 					<li class="nav-item d-grid gap-2">
+=======
+							<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="bandeiraSv"
+							class="nav-link text-white justify-content-center btn-info ">Bandeira</button>
+					</li>
+						<li class="nav-item d-grid gap-2">
+>>>>>>> 455bfa8dc82363303d1842ea8a2da0a0044808bc
 						<button type="submit" name="option" value="receitaSv"
 							class="nav-link text-white justify-content-center btn-info ">Receita</button>
 					</li>
-							<li class="nav-item d-grid gap-2">
+						<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="armazenamentoSv"
 							class="nav-link text-white justify-content-center btn-info ">Armazenamento</button>
 					</li>

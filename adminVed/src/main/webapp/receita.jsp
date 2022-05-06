@@ -50,28 +50,29 @@
 		<hr class="horizontal light mt-0 mb-2">
 		<div class="overflow" id="sidenav-collapse-main">
 			<form action="ServletTroca" method="post">
-				<ul class="navbar-nav">
+								<ul class="navbar-nav">
 					<li class="nav-item  d-grid gap-2">
 						<button type="submit" name="option" value="produtoSV"
-							class="nav-link text-white justify-content-center btn-info ">Produtos</button>
+							class="nav-link text-white justify-content-center btn-info ">
+							Produtos</button>
 					</li>
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="marcaSV"
 							class="nav-link text-white justify-content-center btn-info ">Marcas</button>
 					</li>
-					<li class="nav-item d-grid gap-2">
+							<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="bandeiraSv"
 							class="nav-link text-white justify-content-center btn-info ">Bandeira</button>
 					</li>
-					<li class="nav-item d-grid gap-2">
+						<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="receitaSv"
 							class="nav-link text-white justify-content-center btn-info ">Receita</button>
 					</li>
-									<li class="nav-item d-grid gap-2">
+						<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="armazenamentoSv"
 							class="nav-link text-white justify-content-center btn-info ">Armazenamento</button>
 					</li>
-							<li class="nav-item d-grid gap-2">
+					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="cupomDescontoSv"
 							class="nav-link text-white justify-content-center btn-info ">Cupom Desconto</button>
 					</li>
@@ -94,6 +95,7 @@
 						<button type="submit" name="option" value="listaPedidoSV"
 							class="nav-link text-white justify-content-center btn-info ">Pedidos</button>
 					</li>
+
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="statusProdutoSV"
 							class="nav-link text-white justify-content-center btn-info ">Status
@@ -241,10 +243,14 @@
 																class="btn-success btn "
 																data-bs-target="#modelDelete-${receita.id}">Remover</button>
 <<<<<<< HEAD
+<<<<<<< HEAD
 															<button type="submit" name="option" value="UpdateForm"
 =======
 															<button type="submit" name="option" value="updateForm"
 >>>>>>> 0ec09ff412ef54e60fade0bf9d60c4091a1414b4
+=======
+															<button type="submit" name="option" value="updateForm"
+>>>>>>> 455bfa8dc82363303d1842ea8a2da0a0044808bc
 																class="btn-success btn ">Alterar</button>
 														</td>
 													</tr>

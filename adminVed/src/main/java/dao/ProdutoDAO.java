@@ -267,7 +267,11 @@ public class ProdutoDAO {
 		return null;
 	}
 
+<<<<<<< HEAD
 	// Valor total de Vendas no pa�s
+=======
+	// Valor total de Vendas no paï¿½s
+>>>>>>> 455bfa8dc82363303d1842ea8a2da0a0044808bc
 	public Integer TotalDeVendas() {
 		Conexao conexao = Conexao.getInstance();
 		Connection connection = conexao.getConnection();
