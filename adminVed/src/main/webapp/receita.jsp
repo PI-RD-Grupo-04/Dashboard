@@ -50,7 +50,7 @@
 		<hr class="horizontal light mt-0 mb-2">
 		<div class="overflow" id="sidenav-collapse-main">
 			<form action="ServletTroca" method="post">
-								<ul class="navbar-nav">
+				<ul class="navbar-nav">
 					<li class="nav-item  d-grid gap-2">
 						<button type="submit" name="option" value="produtoSV"
 							class="nav-link text-white justify-content-center btn-info ">
@@ -60,25 +60,27 @@
 						<button type="submit" name="option" value="marcaSV"
 							class="nav-link text-white justify-content-center btn-info ">Marcas</button>
 					</li>
-							<li class="nav-item d-grid gap-2">
+					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="bandeiraSv"
 							class="nav-link text-white justify-content-center btn-info ">Bandeira</button>
 					</li>
-						<li class="nav-item d-grid gap-2">
+					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="receitaSv"
 							class="nav-link text-white justify-content-center btn-info ">Receita</button>
 					</li>
-						<li class="nav-item d-grid gap-2">
+					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="armazenamentoSv"
 							class="nav-link text-white justify-content-center btn-info ">Armazenamento</button>
 					</li>
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="cupomDescontoSv"
-							class="nav-link text-white justify-content-center btn-info ">Cupom Desconto</button>
+							class="nav-link text-white justify-content-center btn-info ">Cupom
+							Desconto</button>
 					</li>
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="tipoFreteSv"
-							class="nav-link text-white justify-content-center btn-info ">Tipo de Frete</button>
+							class="nav-link text-white justify-content-center btn-info ">Tipo
+							de Frete</button>
 					</li>
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="fornecedorSV"
@@ -225,8 +227,8 @@
 																	</div>
 																	<div class="modal-body">
 																		Deseja excluir permanentemente o Item:
-																		${receita.titulo} ? <input type="hidden"
-																			name="id" value="${receita.id}" />
+																		${receita.titulo} ? <input type="hidden" name="id"
+																			value="${receita.id}" />
 																	</div>
 
 																	<div class="modal-footer">
@@ -242,15 +244,8 @@
 															<button type="button" data-bs-toggle="modal"
 																class="btn-success btn "
 																data-bs-target="#modelDelete-${receita.id}">Remover</button>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 															<button type="submit" name="option" value="UpdateForm"
-=======
-															<button type="submit" name="option" value="updateForm"
->>>>>>> 0ec09ff412ef54e60fade0bf9d60c4091a1414b4
-=======
-															<button type="submit" name="option" value="updateForm"
->>>>>>> 455bfa8dc82363303d1842ea8a2da0a0044808bc
 																class="btn-success btn ">Alterar</button>
 														</td>
 													</tr>
@@ -266,10 +261,11 @@
 			</div>
 		</div>
 
-		<script function mostraDialogo(mensagem, tipo, tempo){
+		<script function
+			mostraDialogo(mensagem, tipo, tempo){
     
-    // se
-			houver outro alert desse sendo exibido, cancela essa requisição
+    // se houver outro
+			alert desse sendo exibido, cancela essa requisição
 			if($("#message").is(":visible")){
         return
 			false;
@@ -279,14 +275,14 @@
 			if(!tempo){
         var tempo=3000; }
 
-    // se não setar o tipo, o
-			padrão é alert-info if(!tipo){
+    // se não setar o
+			tipo, o padrão é alert-info if(!tipo){
         var tipo="info"
 			;
     }
 
-    // monta o css da mensagem para que fique flutuando na
-			frente de todos elementos da página var
+    // monta o css da mensagem para que fique flutuando
+			na frente de todos elementos da página var
 			cssMessage="display: block; position: fixed; top: 0; left: 20%; right: 20%; width: 60%; padding-top: 10px; z-index: 9999"
 			;
     var cssInner="margin: 0 auto; box-shadow: 1px 1px 5px black;"
@@ -304,8 +300,8 @@
 			;
     dialogo +='</div>' ;
 
-    // adiciona ao body a mensagem com o
-			efeito de
+    // adiciona ao body a mensagem com
+			o efeito de
 			fade
     $("body").append(dialogo);
     $("#message").hide();
