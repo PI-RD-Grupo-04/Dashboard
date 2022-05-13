@@ -29,19 +29,25 @@
         
         
         <property name="context-root" value="VED2"/>
-                                                
+                                                                
+        
+        
         
         
         
         
         <property name="java-output-path" value="/VED2/build/classes"/>
-                                            
+                                                            
+    
+    
     
     
     
     
     </wb-module>
-                    
+                            
+
+
 
 
 

@@ -33,25 +33,19 @@
 <!-- CSS Files -->
 
 </head>
-
-
-
 <body class="g-sidenav-show  bg-gray-200">
 	<aside
-		class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
+		class="sidenav navbar navbar-vertical justify-content-center  align-items-center	 navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
 		id="sidenav-main">
-		<div class="sidenav-header">
-			<i
-				class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
-				aria-hidden="true" id="iconSidenav"></i> <a class="navbar-brand m-0"
-				href="ServletindexCarol"> <img src="imagens/fav-icon.png"
-				class="navbar-brand-img h-100" alt="main_logo"> <span
-				class="ms-1 -bold text-white">VED</span>
+		<div class="sidenav-header  justify-content-center ">
+			<a class="navbar-brand m-0" href="ServletindexCarol"> <img
+				src="imagens/fav-icon.png" class="navbar-brand-img h-100"
+				alt="main_logo"> <span class="ms-1 -bold text-white">VED</span>
 			</a>
 		</div>
 		<hr class="horizontal light mt-0 mb-2">
 		<div class="overflow" id="sidenav-collapse-main">
-				<form action="ServletTroca" method="post">
+			<form action="ServletTroca" method="post">
 							<ul class="navbar-nav">
 					<li class="nav-item  d-grid gap-2">
 						<button type="submit" name="option" value="produtoSV"
@@ -129,10 +123,23 @@
 						<li class="breadcrumb-item text-sm"><a
 							class="opacity-5 text-dark" href="#">Paginas</a></li>
 						<li class="breadcrumb-item text-sm text-dark active"
-							aria-current="page">Status do Produto</li>
+							aria-current="page">Frete</li>
 					</ol>
-					<h1 class="-bolder mb-0">Status Produto</h1>
+					<h1 class="-bolder mb-0">Frete</h1>
+					<form action="ServletFrete" method="post">
+						<button type="submit" class=" btn btn-info mb-3" name="option"
+							value="insertForm">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+								fill="currentColor" class="bi bi-plus-square-fill"
+								viewBox="0 0 16 16">
+                                    <path
+									d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                </svg>
+						</button>
+
+					</form>
 				</nav>
+
 				<div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4"
 					id="navbar">
 					<div class="ms-md-auto pe-md-3 d-flex align-items-center"></div>
@@ -140,9 +147,9 @@
 						<li class="nav-item d-flex align-items-center "><i
 							class="fa fa-user me-sm-1"></i> <c:choose>
 								<c:when test="${applicationScope.nome != null}">
-								Olá,
-								${applicationScope.nome}
-								</c:when>
+									Olá,
+									${applicationScope.nome}
+									</c:when>
 								<c:otherwise>
 									<%
 									response.sendRedirect("login.jsp");
@@ -171,65 +178,124 @@
 					</ul>
 				</div>
 			</div>
+
 		</nav>
 
-		<div class="container-fluid ">
-			<div class="row">
-				<div class="col-md-5 mx-auto border text-center">
-					<c:choose>
-						<c:when test="${statusProduto == null}">
-							<h3>Cadastrar Status do Produto</h3>
-						</c:when>
-						<c:otherwise>
-							<h3>Atualizar Status do Produto</h3>
-						</c:otherwise>
-					</c:choose>
-					<form method="post" action="ServletStatusProduto">
-						<input type="hidden" name="id" value="${statusProduto.id}" />
-						<div class="modal fade" id="modelDelete" tabindex="-1" aria-labelledby="modelDeleteLabel" aria-hidden="true">
-                            	<div class="modal-dialog">
-                              		<div class="modal-content">
-                                    	<div class="modal-header">
-	                                        <h5 class="modal-title" id="modelDeleteLabel"> Sua ação foi concluida com sucesso!</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>                                                                                                                                                                                                                                              
-                                        <div class="d-grid gap-2">
-                                        	<div class="modal-footer">
-                                        	 	<c:choose>
-				                                	<c:when test="${statusProduto == null}">
-				                                        <button type="submit" class="btn-success btn " name="option" value="insert">ok</button>
-				                                	</c:when>
-					                                <c:otherwise>
-					                                    <button type="submit" class="btn-success btn " name="option" value="update">ok</button>
-					                                </c:otherwise>
-				                            	</c:choose>
-                                        	</div>
-				                        </div>                                    
-                             		</div>
-                           		</div>
-                            </div> 
-						<div class="form-group" style="text-align-last: left">
-							<label for="nome" class="form-label">Status Produto:</label> <input
-								type="text" class="form-control border "
-								style="background-color: rgb(255, 255, 255);" name="descricao"
-								value="${statusProduto.descricao}" required>
+
+
+		<div class="container">
+
+			<!-- End Navbar -->
+			<div class="container-fluid py-2">
+				<div class="row">
+					<div class="col-12">
+						<div class="card my-4">
+							<div
+								class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+								<div class="btn-success border-radius-lg pt-4 pb-3">
+									<h6 class="text-white text-capitalize ps-3">Tabela de
+										Frete</h6>
+								</div>
+							</div>
+							<div class="card-body px-0 pb-2">
+								<div class="table-responsive p-0 justify-content-center">
+									<table class="table mt-5  overflow-scroll over">
+										<thead class="thead-dark">
+											<tr class="text-center">
+												<th scope="col">Id</th>
+												<th scope="col">valor</th>
+												<th scope="col">tipo de frete</th>
+												<th scope="col">uf</th>
+												<th scope="col" class="text-center">Opções</th>
+
+											</tr>
+										</thead>
+										<tbody>
+											<c:forEach var="frete" items="${lista}">
+												<form action="ServletFrete" method="post">
+													<tr class="text-center">
+														<input type="hidden" name="id" value="${frete.id}" />
+
+														<td>${frete.id}</td>
+									
+														<td><fmt:setLocale value="pt_BR" /> R$ <fmt:formatNumber
+																type="number" minFractionDigits="2"
+																value="${frete.valor} " /></td>
+														<td>${frete.tipo_freteTxt}</td>
+														<td>${frete.ufTxt}</td>
+										
+														<!-- Modal -->
+														<div class="modal fade" id="modelDelete-${frete.id}"
+															tabindex="-1" aria-labelledby="modelDeleteLabel"
+															aria-hidden="true">
+															<div class="modal-dialog">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<h5 class="modal-title" id="modelDeleteLabel">
+																			Confirmação de Exclusão</h5>
+																		<button type="button" class="btn-close"
+																			data-bs-dismiss="modal" aria-label="Close"></button>
+																	</div>
+																	<div class="modal-body">
+																		Deseja excluir permanentemente o Item:
+																		${frete.tipo_freteTxt} ? <input type="hidden"
+																			name="id" value="${frete.id}" />
+																	</div>
+
+																	<div class="modal-footer">
+																		<button type="button" class="btn btn-secondary"
+																			data-bs-dismiss="modal">Close</button>
+																		<button type="submit" class="btn btn-success"
+																			name="option" value="delete">Deletar</button>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<td class="text-center">
+															<button type="button" data-bs-toggle="modal"
+																class="btn-success btn "
+																data-bs-target="#modelDelete-${frete.id}">Remover</button>
+															<button type="submit" name="option" value="updateForm"
+																class="btn-success btn ">Alterar</button>
+														</td>
+													</tr>
+												</form>
+											</c:forEach>
+										</tbody>
+									</table>
+								</div>
+							</div>
 						</div>
-						<div class="d-grid gap-2">
-                            	<c:choose>
-                                	<c:when test="${categoria == null}">                                
-                                        <button type="button" data-bs-toggle="modal" class="btn-success btn mt-2" data-bs-target="#modelDelete">Salvar</button>
-                                	</c:when>
-	                                <c:otherwise>
-	                                    <button type="button" data-bs-toggle="modal" class="btn-success btn mt-2" data-bs-target="#modelDelete">atualizar</button>
-	                                </c:otherwise>
-                            	</c:choose>
-                        	</div>
-
-
-					</form>
+					</div>
 				</div>
 			</div>
 		</div>
+
+		<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 20">
+			<div id="liveToast" class="toast" role="alert" aria-live="assertive"
+				aria-atomic="true">
+				<div class="toast-header">
+					<img src="..." class="rounded me-3" alt="..."> <strong
+						class="me-auto">Bootstrap</strong> <small>11 mins ago</small>
+					<button type="button" class="btn-close" data-bs-dismiss="toast"
+						aria-label="Close"></button>
+				</div>
+				<div class="toast-body">Hello, world! This is a toast message.
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			var toastTrigger = document.getElementById('liveToastBtn')
+			var toastLiveExample = document.getElementById('liveToast')
+			if (toastTrigger) {
+				toastTrigger.addEventListener('click', function() {
+					var toast = new bootstrap.Toast(toastLiveExample)
+
+					toast.show()
+				})
+			}
+		</script>
 		<!--   Core JS Files   -->
 		<script src="js/core/popper.min.js"></script>
 		<script src="js/core/bootstrap.min.js"></script>
@@ -245,13 +311,15 @@
 						options);
 			}
 		</script>
-		<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+		<script>
+			<script type="text/javascript" src="jquery-3.6.0.min.js">
+		</script>
 		<script type="text/javascript" src="jquery.mask.min.js"></script>
 		<script src="js/material-dashboard.min.js?v=3.0.0"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$('#cpf').mask('000.000.000-00');
-				$('#dinheiro').mask('0.000,00');
+				$('.dinheiro').mask('#.##0.00');
 				$('#peso').mask('00,000');
 				$('#date').mask('00/00/0000');
 				$('#cnpj').mask('00.000.000/0000-00');
@@ -268,7 +336,3 @@
 </body>
 
 </html>
-
-
-
-

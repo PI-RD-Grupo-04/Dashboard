@@ -35,6 +35,9 @@ public class ServletTroca extends HttpServlet {
 		case("bandeiraSv"):
 			request.getRequestDispatcher("ServletBandeira").forward(request, response);
 			break;
+		case("freteSv"):
+			request.getRequestDispatcher("ServletFrete").forward(request, response);
+			break;
 		case("tipoFreteSv"):
 			request.getRequestDispatcher("ServletTipoFrete").forward(request, response);
 			break;
@@ -78,4 +81,3 @@ public class ServletTroca extends HttpServlet {
 	}
 
 }
-
