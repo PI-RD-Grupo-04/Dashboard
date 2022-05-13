@@ -9,19 +9,16 @@ import java.util.ArrayList;
 import entidades.Marca;
 import utilidades.Conexao;
 
-
-
 public class MarcaDAO {
-	
-	
+
 	public MarcaDAO() {
-		
+
 	}
-	
+
 	public void addMarca(Marca newUser) {
 		Conexao conexao = Conexao.getInstance();
 		Connection connection = conexao.getConnection();
-		
+
 		try {
 			PreparedStatement preStat = connection.prepareStatement("insert into marca (descricao_marca) values (?)");
 			preStat.setString(1, newUser.getDescricao());
@@ -31,18 +28,18 @@ public class MarcaDAO {
 			preStat.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}	
-		
+		}
+
 	}
-		
-	public ArrayList<Marca> getListMarca(){
+
+	public ArrayList<Marca> getListMarca() {
 		Conexao conexao = Conexao.getInstance();
 		Connection connection = conexao.getConnection();
 		ArrayList<Marca> lista = new ArrayList<Marca>();
 		try {
 			PreparedStatement preStat = connection.prepareStatement("select * from marca");
-			ResultSet resultSet = preStat.executeQuery();			
-			
+			ResultSet resultSet = preStat.executeQuery();
+
 			while (resultSet.next()) {
 				Integer id2 = resultSet.getInt("id_marca");
 				String descricao = resultSet.getString("descricao_marca");
@@ -57,11 +54,11 @@ public class MarcaDAO {
 		}
 		return lista;
 	}
-		
+
 	public void removeMarca(Integer id) {
 		Conexao conexao = Conexao.getInstance();
 		Connection connection = conexao.getConnection();
-		
+
 		try {
 			PreparedStatement preStat = connection.prepareStatement("delete from marca where id_marca = ?");
 			preStat.setInt(1, id);
@@ -73,13 +70,14 @@ public class MarcaDAO {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void updateMarca(Marca updateUser) {
 		Conexao conexao = Conexao.getInstance();
 		Connection connection = conexao.getConnection();
-		
+
 		try {
-			PreparedStatement preStat = connection.prepareStatement("update marca set descricao_marca = ? where id_marca = ?");
+			PreparedStatement preStat = connection
+					.prepareStatement("update marca set descricao_marca = ? where id_marca = ?");
 			preStat.setString(1, updateUser.getDescricao());
 			preStat.setInt(2, updateUser.getId());
 			System.out.println(preStat);
@@ -89,8 +87,8 @@ public class MarcaDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	} 
-	
+	}
+
 	public Marca buscarMarca(Integer id) {
 		Conexao conexao = Conexao.getInstance();
 		Connection connection = conexao.getConnection();
@@ -98,22 +96,20 @@ public class MarcaDAO {
 		try {
 			PreparedStatement preStat = connection.prepareStatement("select * from marca where id_marca = ?");
 			preStat.setInt(1, id);
-			ResultSet resultSet = preStat.executeQuery();			
-			while ( resultSet.next()) {
-				
+			ResultSet resultSet = preStat.executeQuery();
+			while (resultSet.next()) {
 				Integer ida = resultSet.getInt("id_marca");
 				String descricao = resultSet.getString("descricao_marca");
 				marca = new Marca(descricao);
 				marca.setId(ida);
-				
 			}
-			 resultSet.close();
-			 preStat.close();
+			resultSet.close();
+			preStat.close();
 		} catch (SQLException e) {
 
 			e.printStackTrace();
 		}
 		return marca;
 	}
-	
+
 }
