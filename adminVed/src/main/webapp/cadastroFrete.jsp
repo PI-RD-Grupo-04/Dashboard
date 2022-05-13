@@ -34,8 +34,6 @@
 
 </head>
 
-
-
 <body class="g-sidenav-show  bg-gray-200">
 	<aside
 		class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
@@ -51,7 +49,7 @@
 		</div>
 		<hr class="horizontal light mt-0 mb-2">
 		<div class="overflow" id="sidenav-collapse-main">
-				<form action="ServletTroca" method="post">
+			<form action="ServletTroca" method="post">
 							<ul class="navbar-nav">
 					<li class="nav-item  d-grid gap-2">
 						<button type="submit" name="option" value="produtoSV"
@@ -129,9 +127,9 @@
 						<li class="breadcrumb-item text-sm"><a
 							class="opacity-5 text-dark" href="#">Paginas</a></li>
 						<li class="breadcrumb-item text-sm text-dark active"
-							aria-current="page">Status do Produto</li>
+							aria-current="page">Frete</li>
 					</ol>
-					<h1 class="-bolder mb-0">Status Produto</h1>
+					<h1 class="-bolder mb-0"> Frete</h1>
 				</nav>
 				<div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4"
 					id="navbar">
@@ -173,59 +171,91 @@
 			</div>
 		</nav>
 
+
+
 		<div class="container-fluid ">
 			<div class="row">
 				<div class="col-md-5 mx-auto border text-center">
 					<c:choose>
-						<c:when test="${statusProduto == null}">
-							<h3>Cadastrar Status do Produto</h3>
+						<c:when test="${frete == null}">
+							<h3>Cadastrar Produto</h3>
 						</c:when>
 						<c:otherwise>
-							<h3>Atualizar Status do Produto</h3>
+							<h3>Atualizar Produto</h3>
 						</c:otherwise>
 					</c:choose>
-					<form method="post" action="ServletStatusProduto">
-						<input type="hidden" name="id" value="${statusProduto.id}" />
-						<div class="modal fade" id="modelDelete" tabindex="-1" aria-labelledby="modelDeleteLabel" aria-hidden="true">
-                            	<div class="modal-dialog">
-                              		<div class="modal-content">
-                                    	<div class="modal-header">
-	                                        <h5 class="modal-title" id="modelDeleteLabel"> Sua ação foi concluida com sucesso!</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>                                                                                                                                                                                                                                              
-                                        <div class="d-grid gap-2">
-                                        	<div class="modal-footer">
-                                        	 	<c:choose>
-				                                	<c:when test="${statusProduto == null}">
-				                                        <button type="submit" class="btn-success btn " name="option" value="insert">ok</button>
-				                                	</c:when>
-					                                <c:otherwise>
-					                                    <button type="submit" class="btn-success btn " name="option" value="update">ok</button>
-					                                </c:otherwise>
-				                            	</c:choose>
-                                        	</div>
-				                        </div>                                    
-                             		</div>
-                           		</div>
-                            </div> 
-						<div class="form-group" style="text-align-last: left">
-							<label for="nome" class="form-label">Status Produto:</label> <input
-								type="text" class="form-control border "
-								style="background-color: rgb(255, 255, 255);" name="descricao"
-								value="${statusProduto.descricao}" required>
+					<form method="post" action="ServletFrete">
+						<input type="hidden" name="id" value="${frete.id}" />
+
+						<div class="modal fade" id="modelDelete" tabindex="-1"
+							aria-labelledby="modelDeleteLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="modelDeleteLabel">Sua ação
+											foi concluida com sucesso!</h5>
+										<button type="button" class="btn-close"
+											data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="d-grid gap-2">
+										<div class="modal-footer">
+											<c:choose>
+												<c:when test="${frete == null}">
+													<button type="submit" class="btn-success btn "
+														name="option" value="insert">ok</button>
+												</c:when>
+												<c:otherwise>
+													<button type="submit" class="btn-success btn "
+														name="option" value="update">ok</button>
+												</c:otherwise>
+											</c:choose>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="d-grid gap-2">
-                            	<c:choose>
-                                	<c:when test="${categoria == null}">                                
-                                        <button type="button" data-bs-toggle="modal" class="btn-success btn mt-2" data-bs-target="#modelDelete">Salvar</button>
-                                	</c:when>
-	                                <c:otherwise>
-	                                    <button type="button" data-bs-toggle="modal" class="btn-success btn mt-2" data-bs-target="#modelDelete">atualizar</button>
-	                                </c:otherwise>
-                            	</c:choose>
-                        	</div>
 
 
+						<div class="form-group" style="text-align-last: left">
+							<label for="nome" class="form-label">Frete:</label> <input
+								type="text" class="form-control border "
+								style="background-color: rgb(255, 255, 255);" name="valor"
+								value="${frete.valor}" required>
+						</div>
+						
+						<div class="form-group mt-3" style="text-align-last: left;">
+							<label for="nome" class="form-label">tipo_frete:</label> <select
+								style="background-color: rgb(255, 255, 255);" id="tipo_frete"
+								name="tipo_frete" class="form-select form-select-md">
+								<c:forEach var="tipo" items="${ListaTipoFrete}">
+									<option value="${tipo.id}">
+										${tipo.descricao_frete}</option>
+								</c:forEach>
+							</select>
+						</div>
+						<div class="form-group mt-3" style="text-align-last: left;">
+							<label for="uf" class="form-label">uf:</label> <select
+								style="background-color: rgb(255, 255, 255);" id="uf"
+								name="uf" class="form-select form-select-md">
+								<c:forEach var="uf" items="${ListaUf}">
+									<option value="${uf.id}">
+										${uf.descricao}</option>
+								</c:forEach>
+							</select>
+						</div>
+
+						
+							<c:choose>
+								<c:when test="${frete == null}">
+									<button type="button" data-bs-toggle="modal"
+										class="btn-success btn " data-bs-target="#modelDelete">Salvar</button>
+								</c:when>
+								<c:otherwise>
+									<button type="button" data-bs-toggle="modal"
+										class="btn-success btn " data-bs-target="#modelDelete">atualizar</button>
+								</c:otherwise>
+							</c:choose>
+						</div>
 					</form>
 				</div>
 			</div>
@@ -251,15 +281,20 @@
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$('#cpf').mask('000.000.000-00');
-				$('#dinheiro').mask('0.000,00');
-				$('#peso').mask('00,000');
-				$('#date').mask('00/00/0000');
+				$('#peso').mask('000');
+				$('#date').mask('31/12/0000');
 				$('#cnpj').mask('00.000.000/0000-00');
 				$('#telefone').mask('(00) 0000-0000');
 				$('#anomes').mask('00/0000');
 				$('#cep').mask('00000-000');
+				$('.dinheiro').mask('###0,00');
 
 			});
+		</script>
+		<script>
+			function funcao1() {
+				alert("cadastrado!");
+			}
 		</script>
 		<!-- Github buttons -->
 		<script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -268,7 +303,5 @@
 </body>
 
 </html>
-
-
 
 

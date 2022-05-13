@@ -46,8 +46,8 @@
 		</div>
 		<hr class="horizontal light mt-0 mb-2">
 		<div class="overflow" id="sidenav-collapse-main">
-			<form action="ServletTroca" method="post">
-								<ul class="navbar-nav">
+				<form action="ServletTroca" method="post">
+							<ul class="navbar-nav">
 					<li class="nav-item  d-grid gap-2">
 						<button type="submit" name="option" value="produtoSV"
 							class="nav-link text-white justify-content-center btn-info ">
@@ -77,6 +77,11 @@
 						<button type="submit" name="option" value="tipoFreteSv"
 							class="nav-link text-white justify-content-center btn-info ">Tipo de Frete</button>
 					</li>
+						<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="freteSv"
+							class="nav-link text-white justify-content-center btn-info ">Frete</button>
+					</li>
+					
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="fornecedorSV"
 							class="nav-link text-white justify-content-center btn-info ">Fornecedores</button>
@@ -92,8 +97,7 @@
 						<button type="submit" name="option" value="listaPedidoSV"
 							class="nav-link text-white justify-content-center btn-info ">Pedidos</button>
 					</li>
-
-					<li class="nav-item d-grid gap-2">
+									<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="statusProdutoSV"
 							class="nav-link text-white justify-content-center btn-info ">Status
 							Produto</button>
@@ -120,9 +124,9 @@
 						<li class="breadcrumb-item text-sm"><a
 							class="opacity-5 text-dark" href="#">Paginas</a></li>
 						<li class="breadcrumb-item text-sm text-dark active"
-							aria-current="page">cadastro Marca</li>
+							aria-current="page">Marca</li>
 					</ol>
-					<h1 class="-bolder mb-0">cadastro de Marca</h1>
+					<h1 class="-bolder mb-0">Marca</h1>
 				</nav>
 				<div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4"
 					id="navbar">
