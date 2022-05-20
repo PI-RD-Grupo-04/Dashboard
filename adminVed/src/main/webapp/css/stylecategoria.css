@@ -1,0 +1,63 @@
+h2{
+    font-weight:lighter
+
+}
+/* MENU LATERAL */
+
+h2{
+    margin-right: 2px;
+    color: white;
+}
+
+.color-menu{
+    background-color: rgb(231, 231, 231); 
+  
+}
+
+.border-menu{
+    border: 1px solid #919191;
+}
+
+.title-menu{
+    color: rgb(255, 255, 255);
+    padding-top: 10px; 
+
+
+
+}
+nav.navlateral {
+
+    background-color: #198754;
+    /* #50C5BC */
+
+}
+.menuletra {
+    
+    text-decoration: none;
+    font-size: 14px;
+    color: rgb(255, 255, 255); }
+
+
+    /* Canvas  */
+
+
+/* MEDIA */
+
+    @media (max-width: 2000px){
+        .menucanvas{display:none; }
+        .filtrocanvas{display:none; }
+    }
+
+    @media (max-width: 992px){
+        .navlateral{display: none;}
+        .menucanvas{display:block; }
+        .produtoencoontrado{display: none;}
+
+    
+        }
+    @media (max-width: 576px) {
+        .dropfilter{display: none;}
+        .filtrocanvas{display:block; }
+
+    }
+    

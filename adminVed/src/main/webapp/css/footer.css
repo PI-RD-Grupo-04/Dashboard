@@ -1,0 +1,62 @@
+/***************************************FOOTER BEGIN***********************************/
+footer{
+    display: flex;
+    flex-flow: row wrap;
+    height: 60%;
+    margin: 0px;
+    padding: 0px;
+    background-color: #198754;
+    text-align:  left;
+
+}
+
+.btn-link{
+    text-decoration: none; 
+    color: white; 
+    
+}
+
+li a:hover {
+	color: #54043c;
+	text-decoration: none;
+}
+
+
+
+footer li{
+    text-decoration: none; 
+    color: rgb(255, 255, 255);
+
+}
+
+.rodape{
+    background-color: #54043c;
+    color:white;  
+    margin-left:0;
+} 
+
+a{
+    text-decoration: none; 
+    color: white;
+}
+
+.alinhamento{
+    margin-left: 20px;
+}
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+*
+{
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+p{
+ font-size: clamp(1em, 1em + 1vw, 1.25em);
+
+}

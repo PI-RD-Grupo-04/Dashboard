@@ -1,0 +1,24 @@
+.menucanvasdentro {
+    background-color: #198754;
+    overflow-y:scroll;
+    padding-left: 4px;
+} 
+
+
+.li-item-menuLateral{
+    background-color: #198754;
+    color: rgb(255, 255, 255);
+}  
+
+
+
+
+.li-item-menuLateral:hover{
+    background-color: #42db94;
+    color: white;
+   
+}  
+
+.ul-canvas-menu{
+    padding: -1px;
+}
