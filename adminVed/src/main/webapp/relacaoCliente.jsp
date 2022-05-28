@@ -284,7 +284,6 @@
 												<th scope="col">CEP</th>
 												<th scope="col">Rua</th>
 												<th scope="col">Numero</th>
-												<th scope="col">Municipio</th>
 												<th scope="col">Cidade</th>
 												<th scope="col">UF</th>
 												<th scope="col">complemento</th>
@@ -298,7 +297,6 @@
 														<td>${endereco.cep}</td>
 														<td>${endereco.rua}</td>
 														<td>${endereco.numero}</td>
-														<td>${endereco.municipio}</td>
 														<td>${endereco.cidade}</td>
 														<td>${endereco.uf}</td>
 														<td><c:choose>

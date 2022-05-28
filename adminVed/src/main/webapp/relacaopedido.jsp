@@ -280,7 +280,7 @@
 													<input type="hidden" name="id" value="${ListaProduto}" />
 													<td>${Produtos.nome_produto}</td>
 													<td>${Produtos.quantidade_total}</td>
-													<td class="dinheiro ">R$ ${Produtos.preco}</td>
+													<td class=" ">R$ ${Produtos.preco}</td>
 													<td class="dinheiro ">R$ ${Produtos.total}</td>
 												</tr>
 											</c:forEach>
@@ -311,7 +311,6 @@
 												<th scope="col">CEP</th>
 												<th scope="col">Rua</th>
 												<th scope="col">Numero</th>
-												<th scope="col">Municipio</th>
 												<th scope="col">UF</th>
 
 											</tr>
@@ -323,7 +322,6 @@
 												<td>${Pedido.cep}</td>
 												<td>${Pedido.rua}</td>
 												<td>${Pedido.numero}</td>
-												<td>${Pedido.municipio}</td>
 												<td>${Pedido.uf}</td>
 											</tr>
 
