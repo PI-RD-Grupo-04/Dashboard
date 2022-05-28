@@ -23,13 +23,6 @@ public class RelacaoPedido {
 	 private String email;
 	 private String uf;
 	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
 	@Override
 	public String toString() {
 		return "RelacaoPedido [stPedido=" + stPedido + ", data=" + data + ", tpEntrega=" + tpEntrega + ", total="
@@ -38,9 +31,6 @@ public class RelacaoPedido {
 				+ ", nome=" + nome + ", sobrenome=" + sobrenome + ", cpf=" + cpf + ", telefone=" + telefone + ", email="
 				+ email + ", uf=" + uf + "]";
 	}
-	
-	
-	
 	
 	
 	public String getNome() {

@@ -95,6 +95,11 @@
 						<button type="submit" name="option" value="tipoFreteSv"
 							class="nav-link text-white justify-content-center btn-info ">Tipo de Frete</button>
 					</li>
+						<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="freteSv"
+							class="nav-link text-white justify-content-center btn-info ">Frete</button>
+					</li>
+					
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="fornecedorSV"
 							class="nav-link text-white justify-content-center btn-info ">Fornecedores</button>
@@ -110,8 +115,7 @@
 						<button type="submit" name="option" value="listaPedidoSV"
 							class="nav-link text-white justify-content-center btn-info ">Pedidos</button>
 					</li>
-
-					<li class="nav-item d-grid gap-2">
+									<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="statusProdutoSV"
 							class="nav-link text-white justify-content-center btn-info ">Status
 							Produto</button>
@@ -296,7 +300,6 @@
 												<th scope="col">CEP</th>
 												<th scope="col">Rua</th>
 												<th scope="col">Numero</th>
-												<th scope="col">Municipio</th>
 												<th scope="col">Cidade</th>
 												<th scope="col">UF</th>
 												<th scope="col">complemento</th>
@@ -310,7 +313,6 @@
 														<td>${endereco.cep}</td>
 														<td>${endereco.rua}</td>
 														<td>${endereco.numero}</td>
-														<td>${endereco.municipio}</td>
 														<td>${endereco.cidade}</td>
 														<td>${endereco.uf}</td>
 														<td><c:choose>

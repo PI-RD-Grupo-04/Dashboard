@@ -50,15 +50,7 @@
 		<hr class="horizontal light mt-0 mb-2">
 		<div class="overflow" id="sidenav-collapse-main">
 			<form action="ServletTroca" method="post">
-<<<<<<< HEAD
-<<<<<<< HEAD
-								<ul class="navbar-nav">
-=======
-				<ul class="navbar-nav">
->>>>>>> 0a520af20fb5aff9538e0d08a157782c68ca5499
-=======
 							<ul class="navbar-nav">
->>>>>>> c8d66d2648b935c8747a7cf6eb6c2b5fb479aadc
 					<li class="nav-item  d-grid gap-2">
 						<button type="submit" name="option" value="produtoSV"
 							class="nav-link text-white justify-content-center btn-info ">
@@ -72,19 +64,11 @@
 						<button type="submit" name="option" value="bandeiraSv"
 							class="nav-link text-white justify-content-center btn-info ">Bandeira</button>
 					</li>
-<<<<<<< HEAD
 						<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="receitaSv"
 							class="nav-link text-white justify-content-center btn-info ">Receita</button>
 					</li>
 						<li class="nav-item d-grid gap-2">
-=======
-								<li class="nav-item d-grid gap-2">
-						<button type="submit" name="option" value="receitaSv"
-							class="nav-link text-white justify-content-center btn-info ">Receita</button>
-					</li>
-							<li class="nav-item d-grid gap-2">
->>>>>>> 0a520af20fb5aff9538e0d08a157782c68ca5499
 						<button type="submit" name="option" value="armazenamentoSv"
 							class="nav-link text-white justify-content-center btn-info ">Armazenamento</button>
 					</li>
@@ -143,23 +127,10 @@
 						<li class="breadcrumb-item text-sm"><a
 							class="opacity-5 text-dark" href="#">Paginas</a></li>
 						<li class="breadcrumb-item text-sm text-dark active"
-							aria-current="page">Bandeira</li>
+							aria-current="page">Frete</li>
 					</ol>
-					<h1 class="-bolder mb-0">Bandeira</h1>
-					<form action="ServletBandeira" method="post">
-						<button type="submit" class=" btn btn-info mb-3" name="option"
-							value="insertForm">
-							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-								fill="currentColor" class="bi bi-plus-square-fill"
-								viewBox="0 0 16 16">
-                                    <path
-									d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                </svg>
-						</button>
-						
-					</form>
+					<h1 class="-bolder mb-0"> Frete</h1>
 				</nav>
-
 				<div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4"
 					id="navbar">
 					<div class="ms-md-auto pe-md-3 d-flex align-items-center"></div>
@@ -167,9 +138,9 @@
 						<li class="nav-item d-flex align-items-center "><i
 							class="fa fa-user me-sm-1"></i> <c:choose>
 								<c:when test="${applicationScope.nome != null}">
-									Olá,
-									${applicationScope.nome}
-									</c:when>
+								Olá,
+								${applicationScope.nome}
+								</c:when>
 								<c:otherwise>
 									<%
 									response.sendRedirect("login.jsp");
@@ -199,90 +170,96 @@
 				</div>
 			</div>
 		</nav>
-		<div id="liveAlertPlaceholder"></div>
 
 
 
-		<div class="container-fluid">
+		<div class="container-fluid ">
+			<div class="row">
+				<div class="col-md-5 mx-auto border text-center">
+					<c:choose>
+						<c:when test="${frete == null}">
+							<h3>Cadastrar Produto</h3>
+						</c:when>
+						<c:otherwise>
+							<h3>Atualizar Produto</h3>
+						</c:otherwise>
+					</c:choose>
+					<form method="post" action="ServletFrete">
+						<input type="hidden" name="id" value="${frete.id}" />
 
-			<!-- End Navbar -->
-			<div class="container-fluid py-2">
-				<div class="row">
-					<div class="col-12">
-						<div class="card my-4">
-							<div
-								class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-								<div class="btn-success border-radius-lg pt-4 pb-3">
-									<h6 class="text-white text-capitalize ps-3">Tabela de
-										Bandeira
-										</h6>
-								</div>
-							</div>
-							<div class="card-body px-0 pb-2 overflow-scroll over">
-								<div class="table-responsive p-0 ">
-									<table class="table mt-5">
-										<thead class="thead-dark">
-											<tr class="text-center">
-												<th scope="col">Id</th>
-												<th scope="col">Descrição Bandeira</th>
-												<th scope="col" class="align-left">Opções</th>
-											</tr>
-										</thead>
-										<tbody>
-											<c:forEach var="bandeira" items="${lista}">
-												<form action="ServletBandeira" method="post">
-													<tr class="text-center">
-														<input type="hidden" name="id" value="${bandeira.id}" />
-														<td>${bandeira.id}</td>
-														<td>${bandeira.nome_bandeira}</td>
-														<!-- Modal -->
-														<div class="modal fade" id="modelDelete-${bandeira.id}"
-															tabindex="-1" aria-labelledby="modelDeleteLabel"
-															aria-hidden="true">
-															<div class="modal-dialog">
-																<div class="modal-content">
-																	<div class="modal-header">
-																		<h5 class="modal-title" id="modelDeleteLabel">
-																			Confirmação de Exclusão</h5>
-																		<button type="button" class="btn-close"
-																			data-bs-dismiss="modal" aria-label="Close"></button>
-																	</div>
-																	<div class="modal-body">
-																		Deseja excluir permanentemente o Item:
-																		${bandeira.nome_bandeira} ? <input type="hidden" name="id"
-																			value="${bandeira.id}" />
-																	</div>
-
-																	<div class="modal-footer">
-																		<button type="button" class="btn btn-secondary"
-																			data-bs-dismiss="modal">Close</button>
-																		<button type="submit" class="btn btn-success"
-																			name="option" id="liveAlertBtn" value="delete">Deletar</button>
-																	</div>
-																</div>
-															</div>
-														</div>
-														<td>
-															<button type="button" data-bs-toggle="modal"
-																id="liveAlertBtn" class="btn-success btn "
-																data-bs-target="#modelDelete-${bandeira.id}">Remover</button>
-															<button type="submit" name="option" value="updateForm"
-																class="btn-success btn ">Alterar</button>
-														</td>
-													</tr>
-												</form>
-											</c:forEach>
-										</tbody>
-									</table>
+						<div class="modal fade" id="modelDelete" tabindex="-1"
+							aria-labelledby="modelDeleteLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="modelDeleteLabel">Sua ação
+											foi concluida com sucesso!</h5>
+										<button type="button" class="btn-close"
+											data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="d-grid gap-2">
+										<div class="modal-footer">
+											<c:choose>
+												<c:when test="${frete == null}">
+													<button type="submit" class="btn-success btn "
+														name="option" value="insert">ok</button>
+												</c:when>
+												<c:otherwise>
+													<button type="submit" class="btn-success btn "
+														name="option" value="update">ok</button>
+												</c:otherwise>
+											</c:choose>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
+
+
+						<div class="form-group" style="text-align-last: left">
+							<label for="nome" class="form-label">Frete:</label> <input
+								type="text" class="form-control border "
+								style="background-color: rgb(255, 255, 255);" name="valor"
+								value="${frete.valor}" required>
+						</div>
+						
+						<div class="form-group mt-3" style="text-align-last: left;">
+							<label for="nome" class="form-label">tipo_frete:</label> <select
+								style="background-color: rgb(255, 255, 255);" id="tipo_frete"
+								name="tipo_frete" class="form-select form-select-md">
+								<c:forEach var="tipo" items="${ListaTipoFrete}">
+									<option value="${tipo.id}">
+										${tipo.descricao_frete}</option>
+								</c:forEach>
+							</select>
+						</div>
+						<div class="form-group mt-3" style="text-align-last: left;">
+							<label for="uf" class="form-label">uf:</label> <select
+								style="background-color: rgb(255, 255, 255);" id="uf"
+								name="uf" class="form-select form-select-md">
+								<c:forEach var="uf" items="${ListaUf}">
+									<option value="${uf.id}">
+										${uf.descricao}</option>
+								</c:forEach>
+							</select>
+						</div>
+
+						
+							<c:choose>
+								<c:when test="${frete == null}">
+									<button type="button" data-bs-toggle="modal"
+										class="btn-success btn " data-bs-target="#modelDelete">Salvar</button>
+								</c:when>
+								<c:otherwise>
+									<button type="button" data-bs-toggle="modal"
+										class="btn-success btn " data-bs-target="#modelDelete">atualizar</button>
+								</c:otherwise>
+							</c:choose>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
-
-
 		<!--   Core JS Files   -->
 		<script src="js/core/popper.min.js"></script>
 		<script src="js/core/bootstrap.min.js"></script>
@@ -304,15 +281,20 @@
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$('#cpf').mask('000.000.000-00');
-				$('#dinheiro').mask('0.000,00');
-				$('#peso').mask('00,000');
-				$('#date').mask('00/00/0000');
+				$('#peso').mask('000');
+				$('#date').mask('31/12/0000');
 				$('#cnpj').mask('00.000.000/0000-00');
 				$('#telefone').mask('(00) 0000-0000');
 				$('#anomes').mask('00/0000');
 				$('#cep').mask('00000-000');
+				$('.dinheiro').mask('###0,00');
 
 			});
+		</script>
+		<script>
+			function funcao1() {
+				alert("cadastrado!");
+			}
 		</script>
 		<!-- Github buttons -->
 		<script async defer src="https://buttons.github.io/buttons.js"></script>

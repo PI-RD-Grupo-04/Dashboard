@@ -81,12 +81,12 @@ public class ServletProduto extends HttpServlet {
 
 	protected void InsertForm(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setAttribute("listaStatus", statusDao.getListStatus());
-		request.setAttribute("listaMarca", marcaDao.getListMarca());
-		request.setAttribute("listaCategoria", categoriaDao.getListCategoria());
-		request.setAttribute("listaArmazenamento", armazenaDao.getlist()); 
-		request.setAttribute("listaFornecedor", forneceDao.getListFornecedor());  
-		request.setAttribute("listaReceita", receitaDao.getListReceita());   
+		request.setAttribute("listaStatus", 		statusDao.getListStatus());
+		request.setAttribute("listaMarca", 			marcaDao.getListMarca());
+		request.setAttribute("listaCategoria", 		categoriaDao.getListCategoria());
+		request.setAttribute("listaArmazenamento",	armazenaDao.getlist()); 
+		request.setAttribute("listaFornecedor", 	forneceDao.getListFornecedor());  
+		request.setAttribute("listaReceita", 		receitaDao.getListReceita());   
 		
 		request.getRequestDispatcher("cadastroProduto.jsp").forward(request, response);
 	}
@@ -98,27 +98,27 @@ public class ServletProduto extends HttpServlet {
 		Produto Buscar = dao.buscarProduto(id1);
 
 		request.setAttribute("produto", Buscar);
-		request.setAttribute("listaStatus", statusDao.getListStatus());
-		request.setAttribute("listaMarca", marcaDao.getListMarca());
+		request.setAttribute("listaStatus",    statusDao.getListStatus());
+		request.setAttribute("listaMarca", 	   marcaDao.getListMarca());
 		request.setAttribute("listaCategoria", categoriaDao.getListCategoria());
 		request.getRequestDispatcher("cadastroProduto.jsp").forward(request, response);
 	}
 
 	protected void Update(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException { 
-		String id = request.getParameter("id");
-		String nome = request.getParameter("nome");
-		String preco = request.getParameter("preco");
-		String imagem = request.getParameter("imagem");
-		String categoria = request.getParameter("categoria");
-		String marca = request.getParameter("marca");
-		String descricao = request.getParameter("descricao");
-		String status = request.getParameter("status");
-		String peso = request.getParameter("peso"); 
-		String fornecedor = request.getParameter("fornecedor"); 
-		String armazenamento = request.getParameter("armazenamento"); 
-		String receita = request.getParameter("receita");  
-		String quantidade = request.getParameter("quantidade");
+		String id = 			request.getParameter("id");
+		String nome = 			request.getParameter("nome");
+		String preco = 			request.getParameter("preco");
+		String imagem = 		request.getParameter("imagem");
+		String categoria = 		request.getParameter("categoria");
+		String marca = 			request.getParameter("marca");
+		String descricao =		request.getParameter("descricao");
+		String status =			request.getParameter("status");
+		String peso = 			request.getParameter("peso"); 
+		String fornecedor = 	request.getParameter("fornecedor"); 
+		String armazenamento = 	request.getParameter("armazenamento"); 
+		String receita = 		request.getParameter("receita");  
+		String quantidade =		request.getParameter("quantidade");
 
 		if ((nome != null) && (preco != null) && (imagem != null) && (categoria != null) && (marca != null)
 				&& (descricao != null) && (status != null) && (peso != null)) {

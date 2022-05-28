@@ -48,10 +48,14 @@
 		<div class="overflow" id="sidenav-collapse-main">
 			<form action="ServletTroca" method="post">
 <<<<<<< HEAD
+<<<<<<< HEAD
 								<ul class="navbar-nav">
 =======
 				<ul class="navbar-nav">
 >>>>>>> 0a520af20fb5aff9538e0d08a157782c68ca5499
+=======
+							<ul class="navbar-nav">
+>>>>>>> c8d66d2648b935c8747a7cf6eb6c2b5fb479aadc
 					<li class="nav-item  d-grid gap-2">
 						<button type="submit" name="option" value="produtoSV"
 							class="nav-link text-white justify-content-center btn-info ">
@@ -93,6 +97,11 @@
 						<button type="submit" name="option" value="tipoFreteSv"
 							class="nav-link text-white justify-content-center btn-info ">Tipo de Frete</button>
 					</li>
+						<li class="nav-item d-grid gap-2">
+						<button type="submit" name="option" value="freteSv"
+							class="nav-link text-white justify-content-center btn-info ">Frete</button>
+					</li>
+					
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="fornecedorSV"
 							class="nav-link text-white justify-content-center btn-info ">Fornecedores</button>
@@ -108,8 +117,7 @@
 						<button type="submit" name="option" value="listaPedidoSV"
 							class="nav-link text-white justify-content-center btn-info ">Pedidos</button>
 					</li>
-
-					<li class="nav-item d-grid gap-2">
+									<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="statusProdutoSV"
 							class="nav-link text-white justify-content-center btn-info ">Status
 							Produto</button>
@@ -136,9 +144,9 @@
 						<li class="breadcrumb-item text-sm"><a
 							class="opacity-5 text-dark" href="#">Paginas</a></li>
 						<li class="breadcrumb-item text-sm text-dark active"
-							aria-current="page">cadastro Bandeira</li>
+							aria-current="page"> Bandeira</li>
 					</ol>
-					<h1 class="-bolder mb-0">cadastro de Bandeira</h1>
+					<h1 class="-bolder mb-0"> Bandeira</h1>
 				</nav>
 				<div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4"
 					id="navbar">

@@ -220,6 +220,7 @@ public class ProdutoDAO {
 							+ "inner join categoria c on c.id_categoria = p.id_categoria "
 							+ "inner join marca m on m.id_marca = p.id_marca  "
 							+ "inner join status_produto st on st.id_status_produto = p.id_status_produto "
+<<<<<<< HEAD
 							+ "where p.id_produto =  like ?"
 =======
 					.prepareStatement("select p.id_produto as id,p.preco , p.nome_produto as nome , p.quantidade, \r\n"
@@ -231,6 +232,10 @@ public class ProdutoDAO {
 							+ "where p.id_produto =  like ?\n"
 >>>>>>> 0a520af20fb5aff9538e0d08a157782c68ca5499
 							+ "	order by p.id_produto; ");
+=======
+							+ "where p.nome_produto like ?"
+							+ "	order by p.id_produto ");
+>>>>>>> c8d66d2648b935c8747a7cf6eb6c2b5fb479aadc
 			preStat.setString(1, produto + "%");
 			ResultSet resultSet = preStat.executeQuery();
 
@@ -279,12 +284,16 @@ public class ProdutoDAO {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 0a520af20fb5aff9538e0d08a157782c68ca5499
 	// Valor total de Vendas no pa�s
 =======
 	// Valor total de Vendas no paï¿½s
 >>>>>>> 455bfa8dc82363303d1842ea8a2da0a0044808bc
+=======
+
+>>>>>>> c8d66d2648b935c8747a7cf6eb6c2b5fb479aadc
 	public Integer TotalDeVendas() {
 		Conexao conexao = Conexao.getInstance();
 		Connection connection = conexao.getConnection();
