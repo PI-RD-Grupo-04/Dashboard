@@ -49,7 +49,7 @@
 		<hr class="horizontal light mt-0 mb-2">
 		<div class="overflow" id="sidenav-collapse-main">
 			<form action="ServletTroca" method="post">
-							<ul class="navbar-nav">
+				<ul class="navbar-nav">
 					<li class="nav-item  d-grid gap-2">
 						<button type="submit" name="option" value="produtoSV"
 							class="nav-link text-white justify-content-center btn-info ">
@@ -59,31 +59,33 @@
 						<button type="submit" name="option" value="marcaSV"
 							class="nav-link text-white justify-content-center btn-info ">Marcas</button>
 					</li>
-							<li class="nav-item d-grid gap-2">
+					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="bandeiraSv"
 							class="nav-link text-white justify-content-center btn-info ">Bandeira</button>
 					</li>
-						<li class="nav-item d-grid gap-2">
+					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="receitaSv"
 							class="nav-link text-white justify-content-center btn-info ">Receita</button>
 					</li>
-						<li class="nav-item d-grid gap-2">
+					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="armazenamentoSv"
 							class="nav-link text-white justify-content-center btn-info ">Armazenamento</button>
 					</li>
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="cupomDescontoSv"
-							class="nav-link text-white justify-content-center btn-info ">Cupom Desconto</button>
+							class="nav-link text-white justify-content-center btn-info ">Cupom
+							Desconto</button>
 					</li>
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="tipoFreteSv"
-							class="nav-link text-white justify-content-center btn-info ">Tipo de Frete</button>
+							class="nav-link text-white justify-content-center btn-info ">Tipo
+							de Frete</button>
 					</li>
-						<li class="nav-item d-grid gap-2">
+					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="freteSv"
 							class="nav-link text-white justify-content-center btn-info ">Frete</button>
 					</li>
-					
+
 					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="fornecedorSV"
 							class="nav-link text-white justify-content-center btn-info ">Fornecedores</button>
@@ -99,7 +101,7 @@
 						<button type="submit" name="option" value="listaPedidoSV"
 							class="nav-link text-white justify-content-center btn-info ">Pedidos</button>
 					</li>
-									<li class="nav-item d-grid gap-2">
+					<li class="nav-item d-grid gap-2">
 						<button type="submit" name="option" value="statusProdutoSV"
 							class="nav-link text-white justify-content-center btn-info ">Status
 							Produto</button>
@@ -137,13 +139,13 @@
 						<li class="nav-item d-flex align-items-center "><i
 							class="fa fa-user me-sm-1"></i> <c:choose>
 								<c:when test="${applicationScope.nome != null}">
-Olá,
-${applicationScope.nome}
-</c:when>
+													Olá,
+													${applicationScope.nome}
+													</c:when>
 								<c:otherwise>
 									<%
-response.sendRedirect("login.jsp");
-%>
+									response.sendRedirect("login.jsp");
+									%>
 								</c:otherwise>
 							</c:choose></li>
 						<li class="nav-item d-xl-none ps-3 d-flex align-items-center">
@@ -192,7 +194,6 @@ response.sendRedirect("login.jsp");
 												<th scope="col">Cliente</th>
 												<th scope="col">Status Pedido</th>
 												<th scope="col">Data</th>
-												<th scope="col">Quantidade</th>
 												<th scope="col">Valor</th>
 												<th scope="col">Mais Info</th>
 											</tr>
@@ -208,7 +209,6 @@ response.sendRedirect("login.jsp");
 														<c:set var="d1" value="${pedido.data}" />
 														<td><fmt:formatDate pattern="dd-MM-yyyy"
 																value="${d1}" /></td>
-														<td>${pedido.quantidade}</td>
 														<td>R$ ${pedido.valor_total}</td>
 														<td>
 															<button type="submit" name="option" value="informacao"

@@ -12,6 +12,7 @@ import entidades.Pedido;
 import entidades.RelacaoPedido;
 import utilidades.Conexao;
 
+
 public class PedidoDAO {
 
 	public PedidoDAO() {
@@ -84,11 +85,11 @@ public class PedidoDAO {
 		Double totalValor = 0.0;
 		try {
 			PreparedStatement preStat = connection
-					.prepareStatement("select sum(item_pedido.quantidade_total) as quantidade " + "from item_pedido "
-							+ "inner join pedido on pedido.id_pedido = item_pedido.id_pedido "
-							+ "inner join produto on produto.id_produto = item_pedido.id_produto "
-							+ "inner join cliente on cliente.id_cliente = pedido.id_cliente "
-							+ "where cliente.id_cliente = ?");
+					.prepareStatement("select sum(item_pedido.quantidade_total) as quantidade  from item_pedido "
+							+ "							inner join pedido on pedido.id_pedido = item_pedido.id_pedido "
+							+ "							inner join produto on produto.id_produto = item_pedido.id_produto "
+							+ "							inner join cliente on cliente.id_cliente = pedido.id_cliente "
+							+ "							where pedido.id_pedido = ?");
 			preStat.setDouble(1, id2);
 			ResultSet resultSet = preStat.executeQuery();
 
