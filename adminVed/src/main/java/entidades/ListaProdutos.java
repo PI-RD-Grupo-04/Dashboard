@@ -4,7 +4,7 @@ public class ListaProdutos {
 	String nome_produto;
 	Integer quantidade_total;
 	Double preco;
-	Double precoTI;
+	Double total;
 
 	public String getNome_produto() {
 		return nome_produto;
@@ -30,26 +30,26 @@ public class ListaProdutos {
 		this.preco = preco;
 	}
 
-	public Double getPrecoTI() {
-		return precoTI;
+	public Double getTotal() {
+		return total;
 	}
 
-	public void setPrecoTI(Double precoTI) {
-		this.precoTI = precoTI;
+	public void setTotal(Double total) {
+		this.total = total;
 	}
 
-	public ListaProdutos(String nome_produto, Integer quantidade_total, Double preco, Double precoTI) {
+	public ListaProdutos(String nome_produto, Integer quantidade_total, Double preco, Double total) {
 		super();
 		this.nome_produto = nome_produto;
 		this.quantidade_total = quantidade_total;
 		this.preco = preco;
-		this.precoTI = precoTI;
+		this.total = total;
 
 	}
 
 	@Override
 	public String toString() {
 		return "ListaProdutos [nome_produto=" + nome_produto + ", quantidade_total=" + quantidade_total + ", preco="
-				+ preco + ", precoTI=" + precoTI + "]";
+				+ preco + ", precoTI=" + total + "]";
 	}
 }

@@ -281,7 +281,7 @@
 													<td>${Produtos.nome_produto}</td>
 													<td>${Produtos.quantidade_total}</td>
 													<td class="dinheiro ">R$ ${Produtos.preco}</td>
-													<td class="dinheiro ">R$ ${Produtos.preçoTI}</td>
+													<td class="dinheiro ">R$ ${Produtos.total}</td>
 												</tr>
 											</c:forEach>
 										</tbody>
