@@ -167,12 +167,12 @@ public class ClienteDAO {
 		Connection connection = conexao.getConnection();
 		ArrayList<Pedido> lista = new ArrayList<Pedido>();
 		try {
-			PreparedStatement preStat = connection.prepareStatement("select pedido.id_pedido, cliente.nome_cliente, pedido_status.descricao_status, pedido.data_pedido, tipo_frete.descricao_frete\r\n"
-					+ "					from pedido \r\n"
-					+ "					inner join cliente on pedido.id_cliente = cliente.id_cliente \r\n"
-					+ "					inner join pedido_status on pedido.id_pedido_status = pedido_status.id_pedido_status  \r\n"
-					+ "                    inner join frete on frete.id_frete = pedido.id_frete\r\n"
-					+ "                    inner join tipo_frete on tipo_frete.id_tipo_frete = frete.id_tipo_frete\r\n"
+			PreparedStatement preStat = connection.prepareStatement("select pedido.id_pedido, cliente.nome_cliente, pedido_status.descricao_status, pedido.data_pedido, tipo_frete.descricao_frete"
+					+ "					from pedido "
+					+ "					inner join cliente on pedido.id_cliente = cliente.id_cliente "
+					+ "					inner join pedido_status on pedido.id_pedido_status = pedido_status.id_pedido_status  "
+					+ "                    inner join frete on frete.id_frete = pedido.id_frete"
+					+ "                    inner join tipo_frete on tipo_frete.id_tipo_frete = frete.id_tipo_frete"
 					+ "                    where cliente.id_cliente = ?"
 					); 
 			preStat.setInt(1, id);
